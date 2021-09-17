@@ -64,10 +64,20 @@ public class FakePartsData {
     
     public List<CPU> SearchCPUByName(String name){
         List<CPU> temp = new ArrayList<>();
-
         for (CPU s : CPUList)
         {
             if(s.getBasicinfo().getName().contains(name)){
+                temp.add(s);
+            }
+        }
+        return temp;
+    }
+
+    public List<CPU> SearchCPUByBrand(String brand){
+        List<CPU> temp = new ArrayList<>();
+        for (CPU s : CPUList)
+        {
+            if(s.getBasicinfo().getName().contains(brand)){
                 temp.add(s);
             }
         }
