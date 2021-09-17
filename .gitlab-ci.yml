@@ -5,4 +5,5 @@ build:
  stage: build
  script: 
   - ./gradlew build
+  - ./gradlew.bat --stop
 
