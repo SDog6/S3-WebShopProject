@@ -19,7 +19,7 @@ public class FakePartsData {
 
     public FakePartsData() {
         CPU Ryzen5600 = new CPU(new ProductInfo("AMD Ryzen 5 5600X", "AMD", 289, 2), 3.7, 65, "AM4", 8, 12);
-        CPU Intel5 = new CPU(new ProductInfo("Intel Core i5-10600KF", "Intel", 222, 3), 4.1, 125, "Socket 1200", 6, 12);
+        CPU Intel5 = new CPU(new ProductInfo("Intel Core i5-10600KF", "Intel", 300, 3), 4.1, 125, "Socket 1200", 6, 12);
 
 
         CPUCooling Cooler = new CPUCooling(new ProductInfo("CoolerMaster Hyper 212 Black Edition","Cooler Master",43.99,2),12);

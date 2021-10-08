@@ -2,27 +2,28 @@ import React,{Component} from "react";
 import axios from "axios";
 import CPUCard from "../Cards/CPUCard";
 
-class CPUList extends Component{
+class CPUSearch extends Component{
     
     
     constructor(props) {
         super(props)
+    
         this.state = { 
              products : []
         }
-    }    
+    }
     
     
     componentDidMount() { 
-        axios.get('http://localhost:8080/CPU')
+        axios.get('http://localhost:8080/CPU/' + this.props.name)
         .then(response =>{
             this.setState({
                 products: response.data
+                
             })
             console.log(response.data)
         })
     }
-    
 
     render() { 
         const {products} = this.state
@@ -38,7 +39,7 @@ class CPUList extends Component{
 }
 
 
-export default CPUList
+export default CPUSearch;
 
 
 

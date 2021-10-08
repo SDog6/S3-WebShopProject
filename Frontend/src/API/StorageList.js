@@ -1,36 +1,39 @@
 import React,{Component} from "react";
 import axios from "axios";
-import CPUCard from "../Cards/CPUCard";
 
-class CPUList extends Component{
+class StorageList extends Component{
     
     
     constructor(props) {
         super(props)
+    
         this.state = { 
              products : []
         }
-    }    
+    }
+
+
+    
     
     
     componentDidMount() { 
-        axios.get('http://localhost:8080/CPU')
+        axios.get('http://localhost:8080/Storage')
         .then(response =>{
             this.setState({
                 products: response.data
+                
             })
             console.log(response.data)
         })
     }
-    
 
     render() { 
         const {products} = this.state
         return(
             <div>
-                <h1>CPUs</h1>
+                <h1>Storage</h1>
                 {
-                    products.map(product => <div className = 'wrapper'> <CPUCard title = {product.basicinfo.name} price = {product.basicinfo.price} brand = {product.basicinfo.brand} warranty = {product.basicinfo.warranty}/> </div> )
+                    products.map(product => <div> {product.basicinfo.name} / {product.basicinfo.brand} / {product.basicinfo.price} / {product.basicinfo.price} / {product.basicinfo.warranty} / {product.type} / {product.amount} / {product.writespeed} </div>)
                 }
             </div>
         )
@@ -38,7 +41,7 @@ class CPUList extends Component{
 }
 
 
-export default CPUList
+export default StorageList
 
 
 
