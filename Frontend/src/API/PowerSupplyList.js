@@ -31,7 +31,7 @@ class PowerSupplyList extends Component{
         const {products} = this.state
         return(
             <div>
-                <h1>PowerSupplys</h1>
+                <h1>Power Supplies</h1>
                 {
                     products.map(product => <div> {product.basicinfo.name} / {product.basicinfo.brand} / {product.basicinfo.price} / {product.basicinfo.price} / {product.basicinfo.warranty} / {product.capacity} </div>)
                 }
