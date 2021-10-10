@@ -1,41 +1,28 @@
-import React,{Component} from "react";
+import React,{Component, useEffect, useState} from "react";
 import axios from "axios";
 import CPUCard from "../Cards/CPUCard";
 
-class CPUSearch extends Component{
+function CPUSearch (props) {
     
-    
-    constructor(props) {
-        super(props)
-    
-        this.state = { 
-             products : []
-        }
-    }
-    
-    
-    componentDidMount() { 
-        axios.get('http://localhost:8080/CPU/' + this.props.name)
-        .then(response =>{
-            this.setState({
-                products: response.data
-                
-            })
-            console.log(response.data)
-        })
-    }
+    const PropsName = props.match.params.name
+    const [Product,setProduct] = useState([])
 
-    render() { 
-        const {products} = this.state
+    useEffect(() => {
+        axios.get(`http://localhost:8080/CPU/Name?name=${PropsName}`)
+        .then(response =>{
+            setProduct(response.data)
+        })
+    },[])
+
         return(
             <div>
                 <h1>CPUs</h1>
                 {
-                    products.map(product => <div className = 'wrapper'> <CPUCard title = {product.basicinfo.name} price = {product.basicinfo.price} brand = {product.basicinfo.brand} warranty = {product.basicinfo.warranty}/> </div> )
+                    Product.map(product => <div className = 'wrapper'> <CPUCard title = {Product.basicinfo.name} price = {Product.basicinfo.price} brand = {Product.basicinfo.brand} warranty = {Product.basicinfo.warranty}/> </div> )
                 }
             </div>
         )
-    }
+    
 }
 
 

@@ -8,6 +8,7 @@ import Navbar from './Components/Navbar';
 import Login from './Pages/Login';
 import Products from './Pages/Products';
 import SearchPage from './Pages/SearchPage';
+import CPUSearch from './API/CPUSearch';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Route path='/' exact component={Home} />
           <Route path='/products' exact component={Products} />
           <Route path='/login' exact component={Login} />
-          <Route path='/CPU/:name' exact component={SearchPage} />
+          <Route path='/CPU/:name' exact component={CPUSearch} />
 
 
         </Switch>
