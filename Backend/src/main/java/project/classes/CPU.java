@@ -1,6 +1,6 @@
-package Project.classes;
+package project.classes;
 
-import Project.classes.SupportClasses.ProductInfo;
+import project.classes.SupportClasses.ProductInfo;
 
 public class CPU {
 

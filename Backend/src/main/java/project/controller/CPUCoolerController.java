@@ -1,7 +1,8 @@
-package Project.controller;
+package project.controller;
 
-import Project.classes.Powersupply;
-import Project.fakedatabase.FakePartsData;
+
+import project.classes.CPUCooling;
+import project.fakedatabase.FakePartsData;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,18 +13,17 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/PowerSupply")
-public class PowersupplyController {
-
+@RequestMapping("/CPUCooler")
+public class CPUCoolerController {
 
     private static final FakePartsData data = new FakePartsData();
 
 
     @GetMapping
-    public ResponseEntity<List<Powersupply>> getAllPowersupply(){
-        List <Powersupply> test = null;
+    public ResponseEntity<List<CPUCooling>> getAllCPUCoolers(){
+        List <CPUCooling> test = null;
 
-        test = data.GetAllPowersupplies();
+        test = data.GetAllCoolers();
 
         if(test != null){
             return ResponseEntity.ok().body(test);

@@ -1,4 +1,4 @@
-package Project.classes.SupportClasses;
+package project.classes.SupportClasses;
 
 
 public class ProductInfo {

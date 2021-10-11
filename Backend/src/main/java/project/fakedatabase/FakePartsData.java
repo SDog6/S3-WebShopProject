@@ -1,7 +1,7 @@
-package Project.fakedatabase;
+package project.fakedatabase;
 
-import Project.classes.*;
-import Project.classes.SupportClasses.ProductInfo;
+import project.classes.*;
+import project.classes.SupportClasses.ProductInfo;
 
 import java.util.ArrayList;
 import java.util.List;

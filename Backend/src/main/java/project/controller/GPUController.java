@@ -1,7 +1,7 @@
-package Project.controller;
+package project.controller;
 
-import Project.classes.GPU;
-import Project.fakedatabase.FakePartsData;
+import project.classes.GPU;
+import project.fakedatabase.FakePartsData;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

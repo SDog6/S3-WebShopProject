@@ -1,9 +1,18 @@
 stages:
 - build
+- sonar
 
 build:
+
+ stage: sonar
+ script: 
+  - gradlew sonarqube ^
+  -Dsonar.projectKey=IndividualProject ^
+  -Dsonar.host.url=http://localhost:9000 ^
+  -Dsonar.login=f99bd0ad8e6db32842b9c26f17a8b5ce5b5d6ab8
+
+
  stage: build
  script: 
   - ./Backend/gradlew build
   - ./Backend/gradlew.bat --stop
-

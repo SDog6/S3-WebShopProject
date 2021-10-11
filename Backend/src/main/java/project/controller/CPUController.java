@@ -1,7 +1,7 @@
-package Project.controller;
+package project.controller;
 
-import Project.classes.CPU;
-import Project.fakedatabase.FakePartsData;
+import project.classes.CPU;
+import project.fakedatabase.FakePartsData;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

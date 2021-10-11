@@ -1,7 +1,7 @@
-package Project.controller;
+package project.controller;
 
-import Project.classes.Storage;
-import Project.fakedatabase.FakePartsData;
+import project.classes.Motherboard;
+import project.fakedatabase.FakePartsData;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,18 +12,16 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/Storage")
-public class StorageController {
-
+@RequestMapping("/Motherboard")
+public class MotherboardController {
 
     private static final FakePartsData data = new FakePartsData();
 
-
     @GetMapping
-    public ResponseEntity<List<Storage>> getAllStorage(){
-        List <Storage> test = null;
+    public ResponseEntity<List<Motherboard>> getAllMotherb(){
+        List <Motherboard> test = null;
 
-        test = data.GetAllStorages();
+        test = data.GetAllMotherboards();
 
         if(test != null){
             return ResponseEntity.ok().body(test);
