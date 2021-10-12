@@ -18,7 +18,7 @@ sonarqube-check:
   cache:
     key: "${do}"
     paths:
-      - .sonar/cache
+      - Backend/.sonar/cache
   script: gradle sonarqube
   allow_failure: true
   only:
