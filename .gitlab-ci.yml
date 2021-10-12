@@ -9,18 +9,19 @@ build:
   - ./gradlew build
   - ./gradlew.bat --stop
 
- stage: sonarqube-check
+sonarqube-check:
+  stage: sonarqube-check
   image: gradle:jre11-slim
   variables:
-    SONAR_USER_HOME: "$Backend/.sonar"  # Defines the location of the analysis task cache
+    SONAR_USER_HOME: "${Backend}/.sonar"  # Defines the location of the analysis task cache
     GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
   cache:
-    key: "$do"
+    key: "${do}"
     paths:
       - .sonar/cache
   script: 
-  - cd Backend
-  - gradle sonarqube
+    - cd Backend
+    - gradle sonarqube
   allow_failure: true
   only:
-    - master
+    - master # or the name of your main branch
