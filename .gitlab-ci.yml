@@ -19,7 +19,9 @@ sonarqube-check:
     key: "${do}"
     paths:
       - Backend/.sonar/cache
-  script: gradle sonarqube
+  script: 
+    - cd Backend
+    - gradle sonarqube
   allow_failure: true
   only:
     - master # or the name of your main branch
