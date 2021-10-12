@@ -9,7 +9,7 @@ build:
   - ./gradlew build
   - ./gradlew.bat --stop
 
-sonarqube-check:
+ stage: sonarqube-check
   image: gradle:jre11-slim
   variables:
     SONAR_USER_HOME: "$Backend/.sonar"  # Defines the location of the analysis task cache
