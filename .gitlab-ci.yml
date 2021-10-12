@@ -6,5 +6,4 @@ build:
  script: 
   - cd Backend
   - ./gradlew build
-  - cd Backend
   - ./gradlew.bat --stop
