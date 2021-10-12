@@ -22,6 +22,7 @@ sonarqube-check:
   script: 
     - cd Backend
     - ./gradlew sonarqube
+    - ./gradlew.bat --stop
   allow_failure: true
   only:
     - master # or the name of your main branch
