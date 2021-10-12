@@ -4,5 +4,5 @@ stages:
 build:
  stage: build
  script: 
-  - Backend/./gradlew build
-  - Backend/./gradlew.bat --stop
+  - Backend/gradlew build
+  - Backend/gradlew.bat --stop
