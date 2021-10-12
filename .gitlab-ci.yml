@@ -1,8 +1,0 @@
-stages:
-- build
-
-build:
- stage: build
- script: 
-  - /Backend/gradlew build
-  - /Backend/gradlew.bat --stop
