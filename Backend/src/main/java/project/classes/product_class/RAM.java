@@ -1,6 +1,6 @@
-package project.classes;
+package project.classes.product_class;
 
-import project.classes.SupportClasses.ProductInfo;
+import project.classes.product_class.parent_class.ProductInfo;
 
 public class RAM {
 

@@ -1,6 +1,6 @@
 package project.controller;
 
-import project.classes.Storage;
+import project.classes.product_class.Storage;
 import project.fakedatabase.FakePartsData;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;

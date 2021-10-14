@@ -1,13 +1,13 @@
-package project.classes.SupportClasses;
+package project.classes.product_class.parent_class;
 
 
-public class ProductInfo {
+public class BasicProduct {
     private String name;
     private String brand;
     private double price;
     private int warranty;
 
-    public ProductInfo(String name,String brand,double price,int warranty)
+    public BasicProduct(String name,String brand,double price,int warranty)
     {
         this.name = name;
         this.brand = brand;

@@ -1,28 +1,23 @@
-package project.classes;
+package project.classes.product_class;
 
-import project.classes.SupportClasses.ProductInfo;
+import project.classes.product_class.parent_class.BasicProduct;
 
-public class CPU {
+public class CPU extends BasicProduct {
 
-    private ProductInfo basicinfo;
     private double clockspeed;
     private int powerconsum;
     private String socket;
     private int cores;
     private int threads;
 
-    public CPU(ProductInfo basicinfo,double clockspeed,int powerconsum,String socket,int cores,int threads)
+    public CPU(String name,String brand,double price,int warranty,double clockspeed,int powerconsum,String socket,int cores,int threads)
     {
-        this.basicinfo = basicinfo;
+        super(name,brand,price,warranty);
         this.clockspeed = clockspeed;
         this.powerconsum = powerconsum;
         this.socket = socket;
         this.cores = cores;
         this.threads = threads;
-    }
-
-    public ProductInfo getBasicinfo() {
-        return basicinfo;
     }
 
     public double getClockspeed() {
