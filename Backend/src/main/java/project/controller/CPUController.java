@@ -1,9 +1,10 @@
 package project.controller;
 
 import project.classes.product_class.CPU;
-import project.fakedatabase.FakePartsData;
+import project.fakedatabase.FakeCPUData;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import project.logic.CPUManager;
 
 import java.util.List;
 
@@ -12,7 +13,8 @@ import java.util.List;
 @RequestMapping("/CPU")
 public class CPUController {
 
-private static final FakePartsData data = new FakePartsData();
+    private FakeCPUData fake = new FakeCPUData();
+    private CPUManager data = new CPUManager(fake);
 
 @GetMapping
 public ResponseEntity<List<CPU>> getAllCPUs(){
@@ -30,7 +32,7 @@ else {
 
 @GetMapping("/Name/{name}")
 public ResponseEntity<List<CPU>> getCPUByName(@PathVariable(value = "name") String name) {
-    List<CPU> cpu = data.SearchCPUByName(name);
+    List<CPU> cpu = data.GetAllCPUsByName(name);
     if (cpu != null) {
         return ResponseEntity.ok().body(cpu);
     } else {
@@ -40,7 +42,7 @@ public ResponseEntity<List<CPU>> getCPUByName(@PathVariable(value = "name") Stri
 
 @GetMapping("/Brand/{brand}")
     public ResponseEntity<List<CPU>> getCPUByBrand(@PathVariable(value = "brand") String brand){
-    List<CPU> cpu = data.SearchCPUByBrand(brand);
+    List<CPU> cpu = data.GetAllCPUsByBrand(brand);
 
     if(cpu != null){
         return ResponseEntity.ok().body(cpu);

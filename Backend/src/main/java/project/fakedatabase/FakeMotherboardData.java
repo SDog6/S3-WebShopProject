@@ -1,31 +1,30 @@
 package project.fakedatabase;
 
-import project.classes.product_class.CPU;
+import project.classes.product_class.Motherboard;
+import project.classes.product_class.Powersupply;
 import project.classes.product_class.parent_class.BasicProduct;
 import project.interfaces.IProductData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FakeCPUData implements IProductData {
+public class FakeMotherboardData implements IProductData {
 
-    private final List<CPU> CPUList;
+    private final List<Motherboard> MotherbList;
 
-    public FakeCPUData() {
-        CPUList =  new ArrayList<>();
+    public FakeMotherboardData() {
+        MotherbList = new ArrayList<>();
 
-        CPU Ryzen5600 = new CPU("AMD Ryzen 5 5600X", "AMD", 289, 2, 3.7, 65, "AM4", 8, 12);
-        CPU Intel5 = new CPU("Intel Core i5-10600KF", "Intel", 300, 3, 4.1, 125, "Socket 1200", 6, 12);
+        Motherboard MPGB550 = new Motherboard("MSI MPG B550 GAMING PLUS - Motherboard - ATX - Socket AM4 ","MSI",139,5,"AMD B550",false);
 
-        CPUList.add(Ryzen5600);
-        CPUList.add(Intel5);
+        MotherbList.add(MPGB550);
 
     }
 
     @Override
     public boolean AddProduct(BasicProduct Product) {
         if (Product!=null){
-            CPUList.add((CPU)Product);
+            MotherbList.add((Motherboard)Product);
             return true;
         }
         return false;
@@ -34,7 +33,7 @@ public class FakeCPUData implements IProductData {
     @Override
     public boolean RemoveProduct(BasicProduct Product) {
         if (Product!=null){
-            CPUList.remove((CPU)Product);
+            MotherbList.remove((Motherboard)Product);
             return true;
         }
         return false;
@@ -43,17 +42,17 @@ public class FakeCPUData implements IProductData {
     @Override
     public List<BasicProduct> GetAllProducts() {
         List<BasicProduct> temp = new ArrayList<>();
-        for (CPU cpu:this.CPUList) {
-            temp.add(cpu);
+        for (Motherboard motherb:this.MotherbList) {
+            temp.add(motherb);
         }
         return null;
     }
 
     @Override
     public BasicProduct GetProductByName(String name) {
-        for (CPU cpu: CPUList) {
-            if (cpu.getName().equals(name)) {
-                return cpu;
+        for (Motherboard motherb: MotherbList) {
+            if (motherb.getName().equals(name)) {
+                return motherb;
             }
         }
         return null;

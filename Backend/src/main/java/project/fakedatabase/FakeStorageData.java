@@ -1,31 +1,31 @@
 package project.fakedatabase;
 
 import project.classes.product_class.CPU;
+import project.classes.product_class.Storage;
 import project.classes.product_class.parent_class.BasicProduct;
 import project.interfaces.IProductData;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.SortedMap;
 
-public class FakeCPUData implements IProductData {
+public class FakeStorageData implements IProductData {
 
-    private final List<CPU> CPUList;
+    private final List<Storage> StorageList;
 
-    public FakeCPUData() {
-        CPUList =  new ArrayList<>();
+    public FakeStorageData() {
+        StorageList = new ArrayList<>();
 
-        CPU Ryzen5600 = new CPU("AMD Ryzen 5 5600X", "AMD", 289, 2, 3.7, 65, "AM4", 8, 12);
-        CPU Intel5 = new CPU("Intel Core i5-10600KF", "Intel", 300, 3, 4.1, 125, "Socket 1200", 6, 12);
+        Storage S = new Storage("Samsung 870 EVO - 2.5 Internal SSD - 500GB","Samsung",70,5,"SSD",500,560);
 
-        CPUList.add(Ryzen5600);
-        CPUList.add(Intel5);
+        StorageList.add(S);
 
     }
 
     @Override
     public boolean AddProduct(BasicProduct Product) {
         if (Product!=null){
-            CPUList.add((CPU)Product);
+            StorageList.add((Storage)Product);
             return true;
         }
         return false;
@@ -34,7 +34,7 @@ public class FakeCPUData implements IProductData {
     @Override
     public boolean RemoveProduct(BasicProduct Product) {
         if (Product!=null){
-            CPUList.remove((CPU)Product);
+            StorageList.remove((Storage)Product);
             return true;
         }
         return false;
@@ -43,17 +43,17 @@ public class FakeCPUData implements IProductData {
     @Override
     public List<BasicProduct> GetAllProducts() {
         List<BasicProduct> temp = new ArrayList<>();
-        for (CPU cpu:this.CPUList) {
-            temp.add(cpu);
+        for (Storage storage:this.StorageList) {
+            temp.add(storage);
         }
         return null;
     }
 
     @Override
     public BasicProduct GetProductByName(String name) {
-        for (CPU cpu: CPUList) {
-            if (cpu.getName().equals(name)) {
-                return cpu;
+        for (Storage storage: StorageList) {
+            if (storage.getName().equals(name)) {
+                return storage;
             }
         }
         return null;

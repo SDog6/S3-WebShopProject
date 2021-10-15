@@ -1,22 +1,19 @@
 package project.classes.product_class;
 
-import project.classes.product_class.parent_class.ProductInfo;
+import project.classes.product_class.parent_class.BasicProduct;
 
-public class Motherboard {
+public class Motherboard extends BasicProduct {
 
-    private ProductInfo basicinfo;
     private String chipset;
     private boolean wifi;
 
-    public Motherboard(ProductInfo basicinfo, String chipset, boolean wifi) {
-        this.basicinfo = basicinfo;
+    public Motherboard(String name,String brand,double price,int warranty, String chipset, boolean wifi) {
+        super(name,brand,price,warranty);
         this.chipset = chipset;
         this.wifi = wifi;
     }
 
-    public ProductInfo getBasicinfo() {
-        return basicinfo;
-    }
+
 
     public String getChipset() {
         return chipset;

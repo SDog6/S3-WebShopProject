@@ -1,12 +1,13 @@
 package project.controller;
 
 import project.classes.product_class.Powersupply;
-import project.fakedatabase.FakePartsData;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import project.fakedatabase.FakePowersupplyData;
+import project.logic.PowersupplyManager;
 
 import java.util.List;
 
@@ -16,14 +17,15 @@ import java.util.List;
 public class PowersupplyController {
 
 
-    private static final FakePartsData data = new FakePartsData();
+    private FakePowersupplyData fake = new FakePowersupplyData();
+    private PowersupplyManager data = new PowersupplyManager(fake);
 
 
     @GetMapping
     public ResponseEntity<List<Powersupply>> getAllPowersupply(){
         List <Powersupply> test = null;
 
-        test = data.GetAllPowersupplies();
+        test = data.GetAllPowersupplys();
 
         if(test != null){
             return ResponseEntity.ok().body(test);

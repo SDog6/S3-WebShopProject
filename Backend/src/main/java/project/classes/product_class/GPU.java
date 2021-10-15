@@ -1,10 +1,10 @@
 package project.classes.product_class;
 
-import project.classes.product_class.parent_class.ProductInfo;
+import project.classes.product_class.parent_class.BasicProduct;
 
-public class GPU {
 
-    private ProductInfo basicinfo;
+public class GPU extends BasicProduct {
+
     private int clockspeed;
     private int vram;
     private int lenght;
@@ -14,8 +14,8 @@ public class GPU {
     private int displayports;
     private int fans;
 
-    public GPU(ProductInfo basicinfo, int clockspeed, int vram, int lenght, int width, int height, int hdmiports, int displayports, int fans) {
-        this.basicinfo = basicinfo;
+    public GPU(String name,String brand,double price,int warranty, int clockspeed, int vram, int lenght, int width, int height, int hdmiports, int displayports, int fans) {
+        super(name,brand,price,warranty);
         this.clockspeed = clockspeed;
         this.vram = vram;
         this.lenght = lenght;
@@ -26,9 +26,7 @@ public class GPU {
         this.fans = fans;
     }
 
-    public ProductInfo getBasicinfo() {
-        return basicinfo;
-    }
+
 
     public int getClockspeed() {
         return clockspeed;

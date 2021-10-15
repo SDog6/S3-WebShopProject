@@ -1,12 +1,13 @@
 package project.controller;
 
 import project.classes.product_class.RAM;
-import project.fakedatabase.FakePartsData;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import project.fakedatabase.FakeRAMData;
+import project.logic.RAMManager;
 
 import java.util.List;
 
@@ -15,7 +16,8 @@ import java.util.List;
 @RequestMapping("/RAM")
 public class RamController {
 
-    private static final FakePartsData data = new FakePartsData();
+    private FakeRAMData fake = new FakeRAMData();
+    private RAMManager data = new RAMManager(fake);
 
 
     @GetMapping

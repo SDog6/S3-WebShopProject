@@ -2,12 +2,13 @@ package project.controller;
 
 
 import project.classes.product_class.CPUCooling;
-import project.fakedatabase.FakePartsData;
+import project.fakedatabase.FakeCPUCoolingData;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import project.logic.CPUCoolingManager;
 
 import java.util.List;
 
@@ -16,14 +17,16 @@ import java.util.List;
 @RequestMapping("/CPUCooler")
 public class CPUCoolerController {
 
-    private static final FakePartsData data = new FakePartsData();
+
+    private FakeCPUCoolingData fake = new FakeCPUCoolingData();
+    private CPUCoolingManager data = new CPUCoolingManager(fake);
 
 
     @GetMapping
     public ResponseEntity<List<CPUCooling>> getAllCPUCoolers(){
         List <CPUCooling> test = null;
 
-        test = data.GetAllCoolers();
+        test = data.GetAllCPUCoolings();
 
         if(test != null){
             return ResponseEntity.ok().body(test);

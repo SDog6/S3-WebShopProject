@@ -1,20 +1,17 @@
 package project.classes.product_class;
 
-import project.classes.product_class.parent_class.ProductInfo;
+import project.classes.product_class.parent_class.BasicProduct;
 
-public class Powersupply {
+public class Powersupply extends BasicProduct {
 
-    private ProductInfo basicinfo;
     private int capacity;
 
-    public Powersupply(ProductInfo basicinfo, int capacity) {
-        this.basicinfo = basicinfo;
+    public Powersupply(String name,String brand,double price,int warranty, int capacity) {
+        super(name,brand,price,warranty);
         this.capacity = capacity;
     }
 
-    public ProductInfo getBasicinfo() {
-        return basicinfo;
-    }
+
 
     public int getCapacity() {
         return capacity;

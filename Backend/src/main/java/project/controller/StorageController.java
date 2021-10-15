@@ -1,12 +1,13 @@
 package project.controller;
 
 import project.classes.product_class.Storage;
-import project.fakedatabase.FakePartsData;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import project.fakedatabase.FakeStorageData;
+import project.logic.StorageManager;
 
 import java.util.List;
 
@@ -15,8 +16,8 @@ import java.util.List;
 @RequestMapping("/Storage")
 public class StorageController {
 
-
-    private static final FakePartsData data = new FakePartsData();
+    private FakeStorageData fake = new FakeStorageData();
+    private StorageManager data = new StorageManager(fake);
 
 
     @GetMapping

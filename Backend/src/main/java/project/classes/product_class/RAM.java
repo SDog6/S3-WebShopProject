@@ -1,23 +1,19 @@
 package project.classes.product_class;
 
-import project.classes.product_class.parent_class.ProductInfo;
+import project.classes.product_class.parent_class.BasicProduct;
 
-public class RAM {
+public class RAM extends BasicProduct {
 
-
-    ProductInfo basicinfo;
     int amount;
     int voltage;
 
-    public RAM(ProductInfo basicinfo, int amount, int voltage) {
-        this.basicinfo = basicinfo;
+    public RAM(String name,String brand,double price,int warranty, int amount, int voltage) {
+        super(name,brand,price,warranty);
         this.amount = amount;
         this.voltage = voltage;
     }
 
-    public ProductInfo getBasicinfo() {
-        return basicinfo;
-    }
+
 
     public int getAmount() {
         return amount;

@@ -1,31 +1,31 @@
 package project.fakedatabase;
 
 import project.classes.product_class.CPU;
+import project.classes.product_class.RAM;
 import project.classes.product_class.parent_class.BasicProduct;
 import project.interfaces.IProductData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FakeCPUData implements IProductData {
+public class FakeRAMData implements IProductData {
 
-    private final List<CPU> CPUList;
+    private final List<RAM> RAMList;
 
-    public FakeCPUData() {
-        CPUList =  new ArrayList<>();
+    public FakeRAMData() {
 
-        CPU Ryzen5600 = new CPU("AMD Ryzen 5 5600X", "AMD", 289, 2, 3.7, 65, "AM4", 8, 12);
-        CPU Intel5 = new CPU("Intel Core i5-10600KF", "Intel", 300, 3, 4.1, 125, "Socket 1200", 6, 12);
+        RAMList = new ArrayList<>();
 
-        CPUList.add(Ryzen5600);
-        CPUList.add(Intel5);
 
+        RAM Corsair = new RAM("Corsair 32GB, DDR4, 3200MHz 32GB DDR4 3200MHz Memory Module","Corsair",749,999,32,3200);
+
+        RAMList.add(Corsair);
     }
 
     @Override
     public boolean AddProduct(BasicProduct Product) {
         if (Product!=null){
-            CPUList.add((CPU)Product);
+            RAMList.add((RAM)Product);
             return true;
         }
         return false;
@@ -34,7 +34,7 @@ public class FakeCPUData implements IProductData {
     @Override
     public boolean RemoveProduct(BasicProduct Product) {
         if (Product!=null){
-            CPUList.remove((CPU)Product);
+            RAMList.remove((RAM)Product);
             return true;
         }
         return false;
@@ -43,17 +43,17 @@ public class FakeCPUData implements IProductData {
     @Override
     public List<BasicProduct> GetAllProducts() {
         List<BasicProduct> temp = new ArrayList<>();
-        for (CPU cpu:this.CPUList) {
-            temp.add(cpu);
+        for (RAM ram:this.RAMList) {
+            temp.add(ram);
         }
         return null;
     }
 
     @Override
     public BasicProduct GetProductByName(String name) {
-        for (CPU cpu: CPUList) {
-            if (cpu.getName().equals(name)) {
-                return cpu;
+        for (RAM ram: RAMList) {
+            if (ram.getName().equals(name)) {
+                return ram;
             }
         }
         return null;

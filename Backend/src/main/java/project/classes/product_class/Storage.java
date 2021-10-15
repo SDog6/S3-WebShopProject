@@ -1,23 +1,18 @@
 package project.classes.product_class;
 
-import project.classes.product_class.parent_class.ProductInfo;
+import project.classes.product_class.parent_class.BasicProduct;
 
-public class Storage {
+public class Storage extends BasicProduct {
 
-    private ProductInfo basicinfo;
     private String type;
     private int amount;
     private int writespeed;
 
-    public Storage(ProductInfo basicinfo, String type, int amount, int writespeed) {
-        this.basicinfo = basicinfo;
+    public Storage(String name,String brand,double price,int warranty, String type, int amount, int writespeed) {
+        super(name,brand,price,warranty);
         this.type = type;
         this.amount = amount;
         this.writespeed = writespeed;
-    }
-
-    public ProductInfo getBasicinfo() {
-        return basicinfo;
     }
 
     public String getType() {
