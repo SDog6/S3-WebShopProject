@@ -1,5 +1,6 @@
 import React,{Component} from "react";
 import axios from "axios";
+import Card from "../Cards/Card";
 
 class GPUList extends Component{
     
@@ -33,7 +34,7 @@ class GPUList extends Component{
             <div>
                 <h1>GPUs</h1>
                 {
-                    products.map(product => <div> {product.basicinfo.name} / {product.basicinfo.brand} / {product.basicinfo.price} / {product.basicinfo.price} / {product.basicinfo.warranty} / {product.clockspeed} / {product.vram} / {product.lenght} / {product.width} / {product.height} / {product.hdmiports} / {product.displayports} / {product.fans} </div>)
+                    products.map(product => <div className = 'wrapper'><Card title = {product.name} price = {product.price} brand = {product.brand} warranty = {product.warranty}/>  </div>)
                 }
             </div>
         )

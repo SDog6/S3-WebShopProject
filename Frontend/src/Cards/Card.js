@@ -8,7 +8,7 @@ function CPUCard(props){
     return(
         <div className="card">
         <Card>
-  <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+  <Card.Img variant="top" src={props.img} />
   <Card.Body>
     <Card.Title>{props.title}</Card.Title>
     <Card.Text>

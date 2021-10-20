@@ -1,7 +1,6 @@
 package project.fakedatabase;
 
 import project.classes.product_class.GPU;
-import project.classes.product_class.GPU;
 import project.classes.product_class.parent_class.BasicProduct;
 import project.interfaces.IProductData;
 
@@ -45,7 +44,7 @@ public class FakeGPUData implements IProductData {
         for (GPU cpu:this.GPUList) {
             temp.add(cpu);
         }
-        return null;
+        return temp;
     }
 
     @Override

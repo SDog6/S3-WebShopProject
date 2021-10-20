@@ -28,11 +28,9 @@ public class GPUController {
         test = data.GetAllGPUs();
         if(test != null){
             return ResponseEntity.ok().body(test);
-
         }
         else {
             return ResponseEntity.notFound().build();
-
         }
     }
 

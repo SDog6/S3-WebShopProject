@@ -1,5 +1,7 @@
 import React,{Component} from "react";
 import axios from "axios";
+import Card from "../Cards/Card";
+
 
 class MotherboardList extends Component{
     
@@ -33,7 +35,7 @@ class MotherboardList extends Component{
             <div>
                 <h1>Motherboards</h1>
                 {
-                    products.map(product => <div> {product.basicinfo.name} / {product.basicinfo.brand} / {product.basicinfo.price} / {product.basicinfo.price} / {product.basicinfo.warranty} / {product.chipset} / {product.wifi}</div>)
+                    products.map(product =>  <div className = 'wrapper'> <Card title = {product.name} price = {product.price} brand = {product.brand} warranty = {product.warranty}/> </div>)
                 }
             </div>
         )

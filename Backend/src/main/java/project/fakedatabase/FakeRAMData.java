@@ -46,7 +46,7 @@ public class FakeRAMData implements IProductData {
         for (RAM ram:this.RAMList) {
             temp.add(ram);
         }
-        return null;
+        return temp;
     }
 
     @Override

@@ -1,6 +1,5 @@
 package project.fakedatabase;
 
-import project.classes.product_class.CPU;
 import project.classes.product_class.Powersupply;
 import project.classes.product_class.parent_class.BasicProduct;
 import project.interfaces.IProductData;
@@ -47,7 +46,7 @@ public class FakePowersupplyData implements IProductData {
         for (Powersupply power:this.PowerSupplyList) {
             temp.add(power);
         }
-        return null;
+        return temp;
     }
 
     @Override

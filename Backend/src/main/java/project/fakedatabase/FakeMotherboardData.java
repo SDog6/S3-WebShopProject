@@ -1,7 +1,6 @@
 package project.fakedatabase;
 
 import project.classes.product_class.Motherboard;
-import project.classes.product_class.Powersupply;
 import project.classes.product_class.parent_class.BasicProduct;
 import project.interfaces.IProductData;
 
@@ -45,7 +44,7 @@ public class FakeMotherboardData implements IProductData {
         for (Motherboard motherb:this.MotherbList) {
             temp.add(motherb);
         }
-        return null;
+        return temp;
     }
 
     @Override

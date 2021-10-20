@@ -12,8 +12,6 @@ public class CPUCooling extends BasicProduct {
         this.voltage = voltage;
     }
 
-
-
     public int getVoltage() {
         return voltage;
     }

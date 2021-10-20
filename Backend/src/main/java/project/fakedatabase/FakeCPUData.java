@@ -19,7 +19,6 @@ public class FakeCPUData implements IProductData {
 
         CPUList.add(Ryzen5600);
         CPUList.add(Intel5);
-
     }
 
     @Override
@@ -46,7 +45,7 @@ public class FakeCPUData implements IProductData {
         for (CPU cpu:this.CPUList) {
             temp.add(cpu);
         }
-        return null;
+        return temp;
     }
 
     @Override

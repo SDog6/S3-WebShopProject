@@ -1,7 +1,7 @@
 package project.classes.product_class.parent_class;
 
 
-public class BasicProduct {
+public abstract class BasicProduct {
     private String name;
     private String brand;
     private double price;

@@ -1,6 +1,6 @@
 import React,{Component, useEffect, useState} from "react";
 import axios from "axios";
-import CPUCard from "../Cards/CPUCard";
+import CPUCard from "../Cards/Card";
 
 function CPUSearch (props) {
     
@@ -8,9 +8,10 @@ function CPUSearch (props) {
     const [Product,setProduct] = useState([])
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/CPU/Name?name=${PropsName}`)
+        axios.get(`http://localhost:8080/CPU/Name/${PropsName}`)
         .then(response =>{
             setProduct(response.data)
+            console.log()
         })
     },[])
 
@@ -18,7 +19,7 @@ function CPUSearch (props) {
             <div>
                 <h1>CPUs</h1>
                 {
-                    Product.map(product => <div className = 'wrapper'> <CPUCard title = {Product.basicinfo.name} price = {Product.basicinfo.price} brand = {Product.basicinfo.brand} warranty = {Product.basicinfo.warranty}/> </div> )
+                   <div className = 'wrapper'> <CPUCard title = {Product.name} price = {Product.price} brand = {Product.brand} warranty = {Product.warranty}/> </div> 
                 }
             </div>
         )

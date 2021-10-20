@@ -1,13 +1,11 @@
 package project.fakedatabase;
 
-import project.classes.product_class.CPU;
 import project.classes.product_class.Storage;
 import project.classes.product_class.parent_class.BasicProduct;
 import project.interfaces.IProductData;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.SortedMap;
 
 public class FakeStorageData implements IProductData {
 
@@ -46,7 +44,7 @@ public class FakeStorageData implements IProductData {
         for (Storage storage:this.StorageList) {
             temp.add(storage);
         }
-        return null;
+        return temp;
     }
 
     @Override

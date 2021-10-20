@@ -30,11 +30,9 @@ public class CPUCoolerController {
 
         if(test != null){
             return ResponseEntity.ok().body(test);
-
         }
         else {
             return ResponseEntity.notFound().build();
-
         }
     }
 
