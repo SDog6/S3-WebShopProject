@@ -11,6 +11,4 @@ public interface IProductData {
     public List<BasicProduct> GetAllProducts();
     public BasicProduct GetProductByName(String name);
 
-
-
 }

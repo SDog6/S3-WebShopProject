@@ -1,9 +1,11 @@
 package project.controller;
 
-import project.classes.product_class.CPU;
-import project.fakedatabase.FakeCPUData;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import project.classes.product_class.CPU;
+import project.data_access.ICPURepo;
+import project.fakedatabase.FakeCPUData;
 import project.logic.CPUManager;
 
 import java.util.List;
@@ -16,11 +18,17 @@ public class CPUController {
     private FakeCPUData fake = new FakeCPUData();
     private CPUManager data = new CPUManager(fake);
 
+
+    @Autowired
+    ICPURepo repository;
+
 @GetMapping
 public ResponseEntity<List<CPU>> getAllCPUs(){
 List <CPU> test = null;
 
-test = data.GetAllCPUs();
+test = repository.findAll();
+
+System.out.println(test);
 
 if(test != null){
     return ResponseEntity.ok().body(test);
