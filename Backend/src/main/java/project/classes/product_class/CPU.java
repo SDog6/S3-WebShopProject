@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Table(name = "cpu")
 public class CPU extends BasicProduct {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

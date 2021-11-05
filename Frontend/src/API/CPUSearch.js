@@ -17,9 +17,9 @@ function CPUSearch (props) {
 
         return(
             <div>
-                <h1>CPUs</h1>
+                <h1>{Product.name}</h1>
                 {
-                   <div className = 'wrapper'> <CPUCard title = {Product.name} price = {Product.price} brand = {Product.brand} warranty = {Product.warranty}/> </div> 
+                   <div className = 'wrapper'> <h1> Price: { Product.price} Brand: {Product.brand} Warranty: {Product.warranty} Cores: {Product.cores}</h1> </div> 
                 }
             </div>
         )

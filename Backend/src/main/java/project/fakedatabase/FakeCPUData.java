@@ -1,13 +1,12 @@
 package project.fakedatabase;
 
 import project.classes.product_class.CPU;
-import project.classes.product_class.parent_class.BasicProduct;
-import project.interfaces.IProductData;
+import project.interfaces.ICPUData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FakeCPUData implements IProductData {
+public class FakeCPUData implements ICPUData {
 
     private final List<CPU> CPUList;
 
@@ -22,7 +21,7 @@ public class FakeCPUData implements IProductData {
     }
 
     @Override
-    public boolean AddProduct(BasicProduct Product) {
+    public boolean AddCPU(CPU Product) {
         if (Product!=null){
             CPUList.add((CPU)Product);
             return true;
@@ -31,7 +30,7 @@ public class FakeCPUData implements IProductData {
     }
 
     @Override
-    public boolean RemoveProduct(BasicProduct Product) {
+    public boolean RemoveCPU(CPU Product) {
         if (Product!=null){
             CPUList.remove((CPU)Product);
             return true;
@@ -40,16 +39,12 @@ public class FakeCPUData implements IProductData {
     }
 
     @Override
-    public List<BasicProduct> GetAllProducts() {
-        List<BasicProduct> temp = new ArrayList<>();
-        for (CPU cpu:this.CPUList) {
-            temp.add(cpu);
-        }
-        return temp;
+    public List<CPU> GetAllCPUs() {
+        return CPUList;
     }
 
     @Override
-    public BasicProduct GetProductByName(String name) {
+    public CPU GetCPUByName(String name) {
         for (CPU cpu: CPUList) {
             if (cpu.getName().equals(name)) {
                 return cpu;
