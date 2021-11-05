@@ -30,12 +30,12 @@ test = repository.findAll();
 
 System.out.println(test);
 
-if(test != null){
+//if(test != null){
     return ResponseEntity.ok().body(test);
-}
-else {
-    return ResponseEntity.notFound().build();
-}
+//}
+//else {
+//    return ResponseEntity.notFound().build();
+//}
 }
 
 @GetMapping("/Name/{name}")
