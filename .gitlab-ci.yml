@@ -36,5 +36,5 @@ docker-build:
     - docker:dind
   script:
     - cd Backend
-    - docker build --pull -t "$CI_REGISTRY_IMAGE${master}" .
+    - docker build --pull "$CI_REGISTRY_IMAGE${master}" .
     - docker push "$CI_REGISTRY_IMAGE${tag}"
