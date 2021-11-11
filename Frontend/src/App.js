@@ -9,6 +9,7 @@ import Login from './Pages/Login';
 import Products from './Pages/Products';
 import SearchPage from './Pages/SearchPage';
 import CPUSearch from './API/CPUSearch';
+import inventory from './Pages/Inventory'
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
           <Route path='/products' exact component={Products} />
           <Route path='/login' exact component={Login} />
           <Route path='/CPU/:name' exact component={CPUSearch} />
+          <Route path='/Inventory' exact component={inventory} />
+
 
 
         </Switch>

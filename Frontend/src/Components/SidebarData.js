@@ -3,6 +3,8 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 import * as VsIcons from 'react-icons/vsc';
+import * as MdIcons from "react-icons/md";
+
 
 
 export const SidebarData = [
@@ -22,6 +24,12 @@ export const SidebarData = [
     title: 'Account',
     path: '/account',
     icon: <VsIcons.VscAccount />,
+    cName: 'nav-text'
+  },
+  {
+    title: 'Inventory',
+    path: '/Inventory',
+    icon: <MdIcons.MdInventory />,
     cName: 'nav-text'
   },
   {
