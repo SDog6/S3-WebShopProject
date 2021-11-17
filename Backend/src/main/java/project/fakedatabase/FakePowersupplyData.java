@@ -15,7 +15,7 @@ public class FakePowersupplyData implements IProductData {
         PowerSupplyList =  new ArrayList<>();
 
 
-        Powersupply SuperS = new Powersupply("650W V2.3 Super Silent Series Power Supply","LC-Power",63,2,650);
+        Powersupply SuperS = new Powersupply("650W V2.3 Super Silent Series Power Supply","LC-Power",63,2,"s",650);
 
         PowerSupplyList.add(SuperS);
 

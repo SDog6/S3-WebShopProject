@@ -19,7 +19,7 @@ function CPUSearch (props) {
             <div>
                 <h1>{Product.name}</h1>
                 {
-                   <div className = 'wrapper'> <h1> Price: { Product.price} Brand: {Product.brand} Warranty: {Product.warranty} Cores: {Product.cores}</h1> </div> 
+                   <div className = 'wrapper'> <h1> <img src={Product.url} alt="Logo" styles = "" /> Price: { Product.price} Brand: {Product.brand} Warranty: {Product.warranty} Cores: {Product.cores}</h1> </div> 
                 }
             </div>
         )

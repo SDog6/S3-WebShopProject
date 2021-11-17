@@ -14,8 +14,8 @@ public class GPU extends BasicProduct {
     private int displayports;
     private int fans;
 
-    public GPU(String name,String brand,double price,int warranty, int clockspeed, int vram, int lenght, int width, int height, int hdmiports, int displayports, int fans) {
-        super(name,brand,price,warranty);
+    public GPU(String name,String brand,double price,int warranty,String url, int clockspeed, int vram, int lenght, int width, int height, int hdmiports, int displayports, int fans) {
+        super(name,brand,price,warranty,url);
         this.clockspeed = clockspeed;
         this.vram = vram;
         this.lenght = lenght;

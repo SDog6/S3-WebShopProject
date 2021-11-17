@@ -14,7 +14,7 @@ public class FakeGPUData implements IProductData {
     public FakeGPUData() {
         GPUList = new ArrayList<>();
 
-        GPU RTX3070 = new GPU("NVIDIA GeForce RTX 3070 Ti","NVIDIA",699,2,1800,8,316,121,56,1,3,3);
+        GPU RTX3070 = new GPU("NVIDIA GeForce RTX 3070 Ti","NVIDIA",699,2,"s",1800,8,316,121,56,1,3,3);
 
         GPUList.add(RTX3070);
 

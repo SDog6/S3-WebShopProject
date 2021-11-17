@@ -17,15 +17,18 @@ public abstract class BasicProduct {
     private double price;
     @Column(name = "warranty")
     private int warranty;
+    @Column(name = "img")
+    private String url;
 
     public BasicProduct(){}
 
-    public BasicProduct(String name,String brand,double price,int warranty)
+    public BasicProduct(String name,String brand,double price,int warranty,String url)
     {
         this.name = name;
         this.brand = brand;
         this.price = price;
         this.warranty = warranty;
+        this.url = url;
     }
 
     public Long getId() {
@@ -66,6 +69,14 @@ public abstract class BasicProduct {
 
     public int getWarranty() {
         return warranty;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     @Override

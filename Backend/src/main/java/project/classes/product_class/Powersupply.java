@@ -6,8 +6,8 @@ public class Powersupply extends BasicProduct {
 
     private int capacity;
 
-    public Powersupply(String name,String brand,double price,int warranty, int capacity) {
-        super(name,brand,price,warranty);
+    public Powersupply(String name,String brand,double price,int warranty,String url, int capacity) {
+        super(name,brand,price,warranty,url);
         this.capacity = capacity;
     }
 

@@ -8,8 +8,8 @@ public class Storage extends BasicProduct {
     private int amount;
     private int writespeed;
 
-    public Storage(String name,String brand,double price,int warranty, String type, int amount, int writespeed) {
-        super(name,brand,price,warranty);
+    public Storage(String name,String brand,double price,int warranty,String url, String type, int amount, int writespeed) {
+        super(name,brand,price,warranty,url);
         this.type = type;
         this.amount = amount;
         this.writespeed = writespeed;

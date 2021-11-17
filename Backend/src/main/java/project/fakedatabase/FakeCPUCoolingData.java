@@ -1,6 +1,5 @@
 package project.fakedatabase;
 
-import project.classes.product_class.CPU;
 import project.classes.product_class.CPUCooling;
 import project.classes.product_class.parent_class.BasicProduct;
 import project.interfaces.IProductData;
@@ -15,7 +14,7 @@ public class FakeCPUCoolingData implements IProductData {
     public FakeCPUCoolingData() {
         CPUCList = new ArrayList<>();
 
-        CPUCooling Cooler = new CPUCooling("CoolerMaster Hyper 212 Black Edition","Cooler Master",43.99,2,12);
+        CPUCooling Cooler = new CPUCooling("CoolerMaster Hyper 212 Black Edition","Cooler Master",43.99,2,"s",12);
 
         CPUCList.add(Cooler);
 

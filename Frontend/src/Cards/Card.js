@@ -8,7 +8,7 @@ function CPUCard(props){
     return(
         <div className="card">
         <Card>
-  <Card.Img variant="top" src={"https://images-na.ssl-images-amazon.com/images/I/61NqeCC8A6L._AC_SL1200_.jpg"} />
+  <Card.Img variant="top" src={props.img} />
   <Card.Body>
     <Card.Title>{props.title}</Card.Title>
     <Card.Text>

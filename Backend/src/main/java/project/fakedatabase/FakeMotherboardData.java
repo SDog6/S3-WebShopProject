@@ -14,7 +14,7 @@ public class FakeMotherboardData implements IProductData {
     public FakeMotherboardData() {
         MotherbList = new ArrayList<>();
 
-        Motherboard MPGB550 = new Motherboard("MSI MPG B550 GAMING PLUS - Motherboard - ATX - Socket AM4 ","MSI",139,5,"AMD B550",false);
+        Motherboard MPGB550 = new Motherboard("MSI MPG B550 GAMING PLUS - Motherboard - ATX - Socket AM4 ","MSI",139,5,"s","AMD B550",false);
 
         MotherbList.add(MPGB550);
 

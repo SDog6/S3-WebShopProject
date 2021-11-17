@@ -30,7 +30,7 @@ class CPUList extends Component{
             <div>
                 <h1>CPUs</h1>
                 {
-                    products.map(product => <div className = 'wrapper'> <Card  title = {product.name} price = {product.price} brand = {product.brand} warranty = {product.warranty}/> </div> )
+                    products.map(product => <div className = 'wrapper'> <Card  img = {product.url} title = {product.name} price = {product.price} brand = {product.brand} warranty = {product.warranty}/> </div> )
                 }
             </div>
         )

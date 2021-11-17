@@ -14,7 +14,7 @@ public class FakeStorageData implements IProductData {
     public FakeStorageData() {
         StorageList = new ArrayList<>();
 
-        Storage S = new Storage("Samsung 870 EVO - 2.5 Internal SSD - 500GB","Samsung",70,5,"SSD",500,560);
+        Storage S = new Storage("Samsung 870 EVO - 2.5 Internal SSD - 500GB","Samsung",70,5,"s","SSD",500,560);
 
         StorageList.add(S);
 

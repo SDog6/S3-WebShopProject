@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import project.classes.product_class.CPU;
 import project.interfaces.ICPUData;
+import project.interfaces.ICPURepo;
 
 import java.util.List;
 

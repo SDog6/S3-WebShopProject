@@ -1,4 +1,4 @@
-package project.data_access;
+package project.interfaces;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

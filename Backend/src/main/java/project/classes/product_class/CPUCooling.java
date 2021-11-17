@@ -7,8 +7,8 @@ public class CPUCooling extends BasicProduct {
 
     private int voltage;
 
-    public CPUCooling(String name,String brand,double price,int warranty, int voltage) {
-        super(name,brand,price,warranty);
+    public CPUCooling(String name,String brand,double price,int warranty,String url, int voltage) {
+        super(name,brand,price,warranty,url);
         this.voltage = voltage;
     }
 
