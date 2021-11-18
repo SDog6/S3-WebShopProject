@@ -1,5 +1,6 @@
 stages:
 - build
+- test
 - sonarqube-check
 - docker-build
 
@@ -9,6 +10,13 @@ build:
   - cd Backend
   - ./gradlew build
   - ./gradlew.bat --stop
+
+test:
+  stage: test
+  script:
+   - cd individual_webshopping
+    - ./gradlew test
+    - ./gradlew.bat --stop
 
 sonarqube-check:
   stage: sonarqube-check

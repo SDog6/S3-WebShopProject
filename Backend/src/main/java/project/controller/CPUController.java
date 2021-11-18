@@ -25,7 +25,6 @@ public class CPUController {
 @GetMapping
 public ResponseEntity<List<CPU>> getAllCPUs(){
 List <CPU> test = null;
-
 test = repository.findAll();
 
 System.out.println(test);
