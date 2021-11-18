@@ -17,7 +17,7 @@ public class CPUCoolingTest {
         FakeCPUCoolingData fake = new FakeCPUCoolingData();
         CPUCoolingManager manager = new CPUCoolingManager(fake);
 
-        CPUCooling test1 = new CPUCooling("test","test",43.99,2,12);
+        CPUCooling test1 = new CPUCooling("test","test",43.99,2,"s",12);
 
         manager.AddProduct(test1);
 
@@ -34,7 +34,7 @@ public class CPUCoolingTest {
         FakeCPUCoolingData fake = new FakeCPUCoolingData();
         CPUCoolingManager manager = new CPUCoolingManager(fake);
 
-        CPUCooling test1 = new CPUCooling("test","test",43.99,2,12);
+        CPUCooling test1 = new CPUCooling("test","test",43.99,2,"s",12);
 
         manager.AddProduct(test1);
 

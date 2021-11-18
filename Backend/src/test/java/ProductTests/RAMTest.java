@@ -17,7 +17,7 @@ public class RAMTest {
         FakeCPUData fake = new FakeCPUData();
         CPUManager manager = new CPUManager(fake);
 
-        manager.AddProduct(new CPU("test", "test", 289, 2, 3.7, 65, "AM4", 8, 12));
+        manager.AddProduct(new CPU("test", "test", 289, 2,"s", 3.7, 65, "AM4", 8, 12));
 
         CPU test = fake.GetCPUByName("test");
 
@@ -31,7 +31,7 @@ public class RAMTest {
         FakeCPUData fake = new FakeCPUData();
         CPUManager manager = new CPUManager(fake);
 
-        CPU test1 = new CPU("test", "test", 289, 2, 3.7, 65, "AM4", 8, 12);
+        CPU test1 = new CPU("test", "test", 289, 2, "s",3.7, 65, "AM4", 8, 12);
 
         manager.AddProduct(test1);
 
