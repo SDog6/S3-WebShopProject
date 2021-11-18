@@ -14,7 +14,7 @@ build:
 test:
   stage: test
   script:
-   - cd individual_webshopping
+    - cd Backend
     - ./gradlew test
     - ./gradlew.bat --stop
 
