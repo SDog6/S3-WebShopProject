@@ -1,0 +1,28 @@
+
+   
+   h4{
+           font-weight:bold;
+       
+   }
+   
+   .table{
+       margin: auto;
+       margin-right: 100px;
+   }
+.productPage.card{
+    max-width: 100vw;
+    display: -webkit-inline-box;
+}
+
+div.productPage img.card-img{
+    max-width: 200px;
+}
+
+img.card-img {
+    margin-top: 70px;
+}
+
+.card-options {
+    width: 100vw;
+}
+

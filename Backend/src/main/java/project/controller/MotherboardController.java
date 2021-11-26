@@ -1,6 +1,6 @@
 package project.controller;
 
-import project.classes.product_class.Motherboard;
+import project.DTO.product_class.Motherboard;
 import project.fakedatabase.FakeMotherboardData;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;

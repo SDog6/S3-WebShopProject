@@ -3,7 +3,7 @@ package ProductTests;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.context.ContextConfiguration;
-import project.classes.product_class.CPU;
+import project.DTO.product_class.CPU;
 import project.fakedatabase.FakeCPUData;
 import project.logic.CPUManager;
 

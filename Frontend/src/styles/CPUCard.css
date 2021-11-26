@@ -8,6 +8,7 @@
     padding: 10px;
   }
 
+
   
 .card {
     overflow: hidden;
@@ -19,9 +20,11 @@
     justify-content: space-between;
     cursor: pointer;
     transition: transform 200ms ease-in;
+    padding: 5px;
   
     
     }
+
 
     a.card-link {
         font: bold 11px Arial;

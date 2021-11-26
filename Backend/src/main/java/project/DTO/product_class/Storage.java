@@ -1,6 +1,6 @@
-package project.classes.product_class;
+package project.DTO.product_class;
 
-import project.classes.product_class.parent_class.BasicProduct;
+import project.DTO.product_class.parent_class.BasicProduct;
 
 public class Storage extends BasicProduct {
 

@@ -1,4 +1,4 @@
-package project.classes.product_class.parent_class;
+package project.DTO.product_class.parent_class;
 
 import javax.persistence.*;
 

@@ -1,6 +1,6 @@
 package project.controller;
 
-import project.classes.product_class.GPU;
+import project.DTO.product_class.GPU;
 import project.fakedatabase.FakeGPUData;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;

@@ -1,7 +1,7 @@
 package project.fakedatabase;
 
-import project.classes.product_class.RAM;
-import project.classes.product_class.parent_class.BasicProduct;
+import project.DTO.product_class.RAM;
+import project.DTO.product_class.parent_class.BasicProduct;
 import project.interfaces.IProductData;
 
 import java.util.ArrayList;

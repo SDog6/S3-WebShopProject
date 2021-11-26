@@ -22,9 +22,6 @@ function App() {
           <Route path='/login' exact component={Login} />
           <Route path='/CPU/:name' exact component={CPUSearch} />
           <Route path='/Inventory' exact component={inventory} />
-
-
-
         </Switch>
       </Router>
             

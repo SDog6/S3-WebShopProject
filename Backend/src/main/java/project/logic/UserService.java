@@ -3,7 +3,7 @@ package project.logic;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import project.classes.user_class.User;
+import project.DTO.user_class.User;
 import project.interfaces.IUserRepo;
 import project.security.UserCreateRequest;
 

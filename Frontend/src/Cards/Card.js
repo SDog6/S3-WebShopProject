@@ -6,7 +6,7 @@ import '../styles/CPUCard.css'
 
 function CPUCard(props){
     return(
-        <div className="card">
+
         <Card>
   <Card.Img variant="top" src={props.img} />
   <Card.Body>
@@ -24,7 +24,7 @@ function CPUCard(props){
     <Card.Link href="#">Add to cart</Card.Link>
   </Card.Body>
 </Card>
-</div>
+
     )
 }
 

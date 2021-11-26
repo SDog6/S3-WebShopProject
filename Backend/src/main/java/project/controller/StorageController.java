@@ -1,6 +1,6 @@
 package project.controller;
 
-import project.classes.product_class.Storage;
+import project.DTO.product_class.Storage;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

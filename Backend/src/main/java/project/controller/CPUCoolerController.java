@@ -1,7 +1,7 @@
 package project.controller;
 
 
-import project.classes.product_class.CPUCooling;
+import project.DTO.product_class.CPUCooling;
 import project.fakedatabase.FakeCPUCoolingData;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;

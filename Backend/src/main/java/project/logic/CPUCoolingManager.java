@@ -1,6 +1,6 @@
 package project.logic;
-import project.classes.product_class.CPUCooling;
-import project.classes.product_class.parent_class.BasicProduct;
+import project.DTO.product_class.CPUCooling;
+import project.DTO.product_class.parent_class.BasicProduct;
 import project.interfaces.IProductData;
 
 import java.util.ArrayList;

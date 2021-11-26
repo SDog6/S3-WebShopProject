@@ -1,33 +1,41 @@
-import React,{Component, useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import CPUCard from "../Cards/Card";
+import { Row, Col } from "antd";
+import ProductInfo from "./ProductInfo";
+import { Card } from "react-bootstrap";
+import "../styles/SearchCard.css"
 
-function CPUSearch (props) {
-    
-    const PropsName = props.match.params.name
-    const [Product,setProduct] = useState([])
+function CPUSearch(props) {
+  const PropsName = props.match.params.name;
+  const [Product, setProduct] = useState([]);
 
-    useEffect(() => {
-        axios.get(`http://localhost:8080/CPU/Name/${PropsName}`)
-        .then(response =>{
-            setProduct(response.data)
-            console.log()
-        })
-    },[])
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/CPU/Name/${PropsName}`)
+      .then((response) => {
+        setProduct(response.data);
+        console.log();
+      });
+  }, []);
 
-        return(
-            <div>
-                <h1>{Product.name}</h1>
-                {
-                   <div className = 'wrapper'> <h1> <img src={Product.url} alt="Logo" styles = "" /> Price: { Product.price} Brand: {Product.brand} Warranty: {Product.warranty} Cores: {Product.cores}</h1> </div> 
-                }
-            </div>
-        )
-    
+  return (
+    <>
+      {/* <div className="postPage" style={{ width: "100%", padding: "3rem 4rem" }}> */}
+      <Card className="productPage">
+        <Card.Img src={Product.url}></Card.Img>
+        <div className="card-options">
+          <div className="titleCard2">
+            <h1>{Product.name}</h1>
+          </div>
+
+          <Card.Body>
+            <ProductInfo detail={Product} />
+          </Card.Body>
+        </div>
+      </Card>
+      {/* </div> */}
+    </>
+  );
 }
 
-
 export default CPUSearch;
-
-
-

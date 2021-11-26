@@ -3,7 +3,7 @@ package ProductTests;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.context.ContextConfiguration;
-import project.classes.product_class.CPUCooling;
+import project.DTO.product_class.CPUCooling;
 import project.fakedatabase.FakeCPUCoolingData;
 import project.logic.CPUCoolingManager;
 

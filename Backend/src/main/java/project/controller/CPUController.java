@@ -3,7 +3,7 @@ package project.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import project.classes.product_class.CPU;
+import project.DTO.product_class.CPU;
 import project.interfaces.ICPURepo;
 import project.fakedatabase.FakeCPUData;
 import project.logic.CPUManager;

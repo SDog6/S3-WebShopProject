@@ -1,7 +1,7 @@
 package project.logic;
 
-import project.classes.product_class.CPU;
-import project.classes.product_class.parent_class.BasicProduct;
+import project.DTO.product_class.CPU;
+import project.DTO.product_class.parent_class.BasicProduct;
 import project.interfaces.ICPUData;
 
 import java.util.ArrayList;

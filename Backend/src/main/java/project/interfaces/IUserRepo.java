@@ -1,7 +1,7 @@
 package project.interfaces;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import project.classes.user_class.User;
+import project.DTO.user_class.User;
 
 import java.util.Optional;
 

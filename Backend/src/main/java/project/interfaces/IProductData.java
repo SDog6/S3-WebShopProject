@@ -1,6 +1,6 @@
 package project.interfaces;
 
-import project.classes.product_class.parent_class.BasicProduct;
+import project.DTO.product_class.parent_class.BasicProduct;
 
 import java.util.List;
 
