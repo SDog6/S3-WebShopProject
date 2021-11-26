@@ -26,9 +26,6 @@ public class CPUController {
 public ResponseEntity<List<CPU>> getAllCPUs(){
 List <CPU> test = null;
 test = repository.findAll();
-
-System.out.println(test);
-
     return ResponseEntity.ok().body(test);
 }
 

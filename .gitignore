@@ -4,7 +4,7 @@
 Frontend/node_modules
 /.pnp
 .pnp.js
-.idea
-.gradle
-Backend/.idea
-Backend/.gradle
+/.idea
+/.gradle
+Backend/*.idea
+Backend/*.gradle
