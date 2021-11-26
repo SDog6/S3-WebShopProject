@@ -12,21 +12,20 @@ import project.logic.UserService;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 
 @Service
 @RequiredArgsConstructor
 public class AuthenticationUserDetailService implements UserDetailsService {
 
-    private UserService userService;
+    private final UserService service;
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User apiUser = userService.readUserByUsername(username);
+    @Override public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User apiUser = service.readUserByUsername(username);
         if (apiUser == null) {
             throw new UsernameNotFoundException(username);
         }
-        return new org.springframework.security.core.userdetails.User(apiUser.getUsername(), apiUser.getPassword(), Collections.emptyList());
+        return new org.springframework.security.core.userdetails.User(apiUser.getUsername(),
+                apiUser.getPassword(), getAuthorities(apiUser.getRole()));
     }
 
     private Collection<? extends GrantedAuthority> getAuthorities(String role) {

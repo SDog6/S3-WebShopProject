@@ -21,7 +21,7 @@ class Login extends Component{
 
     checkUser = (hndl) => {
         hndl.preventDefault();
-        axios.post("http://localhost:8080/user/login", {
+        axios.post("http://localhost:8080/login", {
             username:this.state.email,
             password:this.state.password
         })
@@ -57,8 +57,8 @@ class Login extends Component{
                             <div className="card-body">
                                 <form>
                                     <div className="form=group">
-                                        <label> Email : </label>
-                                        <input placeholder="Email" name="email" className="form-control"
+                                        <label> Username : </label>
+                                        <input placeholder="Username" name="email" className="form-control"
                                             value={this.state.email} onChange={this.changeEmailHandler} />
                                     </div>
                                     <div className="form=group">

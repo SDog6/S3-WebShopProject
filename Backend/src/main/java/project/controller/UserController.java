@@ -1,24 +1,20 @@
 package project.controller;
 
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import project.DTO.product_class.CPU;
 import project.logic.UserService;
-import project.security.JWTAuthenticationFilter;
 import project.security.UserCreateRequest;
 
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/user")
-@RequiredArgsConstructor
 public class UserController {
 
-    private final UserService userService;
-    JWTAuthenticationFilter filter;
+    @Autowired
+    private UserService userService;
 
-    @PostMapping
+    @PostMapping("/register")
     public ResponseEntity createUser(@RequestBody UserCreateRequest userCreateRequest) {
         userService.createUser(userCreateRequest);
         return ResponseEntity.ok().build();
@@ -26,15 +22,12 @@ public class UserController {
 
 
     @GetMapping("/account")
-    public ResponseEntity<CPU> getCPUByName(@PathVariable(value = "name") String name) {
-        return null;
+    public ResponseEntity<String> getAccountDetails() {
+        return ResponseEntity.ok("nice");
     }
 
-
-//    @PostMapping("/login")
-//    public ResponseEntity login(@RequestBody UserCreateRequest userCreateRequest) {
-//        filter.attemptAuthentication(userCreateRequest);
-//
-//    }
-
+    @GetMapping("/inventory")
+    public ResponseEntity<String> getInventory() {
+        return ResponseEntity.ok("nice");
+    }
 }
