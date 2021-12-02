@@ -14,7 +14,7 @@ public class FakePowersupplyData {
         PowerSupplyList =  new ArrayList<>();
 
 
-        Powersupply SuperS = new Powersupply("650W V2.3 Super Silent Series Power Supply","LC-Power",63,2,"s",650);
+        Powersupply SuperS = new Powersupply("650W V2.3 Super Silent Series Power Supply","LC-Power",63,2,"s",0,650);
 
         PowerSupplyList.add(SuperS);
 

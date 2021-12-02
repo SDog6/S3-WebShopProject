@@ -1,16 +1,23 @@
+import { Component } from "react";
 import React, { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
+import { DataContext } from "../Components/Cart/Context";
 
-function ProductInfo(props) {
-  const [Product, setProduct] = useState({});
+export class ProductInfo extends Component {
+ 
+  static contextType = DataContext;
 
-  useEffect(() => {
-    setProduct(props.detail);
-  }, [props.detail]);
 
-  const addToCarthandler = () => {
-    // props.addToCart(props.detail._id)
-  };
+  constructor(props) {
+    super(props)
+    this.state = {
+     
+    }
+  }
+
+
+render(){
+  const {addCart,products} = this.context;
 
   return (
     <>
@@ -23,45 +30,47 @@ function ProductInfo(props) {
         </thead>
         <tbody>
           <tr>
-            <td> Brand: {Product.brand}</td>
+            <td> Brand: {this.props.Product.brand}</td>
           </tr>
           <tr>
-            <td colspan="1"> Warranty: {Product.warranty} years</td>
+            <td colspan="1"> Warranty: {this.Product.warranty} years</td>
           </tr>
           <tr>
-            <td colspan="1"> Brand: {Product.brand}</td>
+            <td colspan="1"> Brand: {this.Product.brand}</td>
           </tr>
           <tr>
-            <td colspan="1"> Clock speed: {Product.clockspeed} Hz</td>
+            <td colspan="1"> Clock speed: {this.Product.clockspeed} Hz</td>
           </tr>
           <tr>
-            <td colspan="1"> Power consumtion: {Product.powerconsum} Watt</td>
+            <td colspan="1"> Power consumtion: {this.Product.powerconsum} Watt</td>
           </tr>
           <tr>
-            <td colspan="1"> Socket: {Product.socket}</td>
+            <td colspan="1"> Socket: {this.Product.socket}</td>
           </tr>
           <tr>
-            <td colspan="1"> Cores: {Product.cores}</td>
+            <td colspan="1"> Cores: {this.Product.cores}</td>
           </tr>
           <tr>
-            <td colspan="1"> Threads: {Product.threads}</td>
+            <td colspan="1"> Threads: {this.Product.threads}</td>
           </tr>
         </tbody>
       </Table>
       <div className="buttonGroup">
 
-<h4>{Product.price} $</h4>
+<h4>{this.Product.price} $</h4>
         <Button
           size="large"
           shape="round"
           type="danger"
-          onClick={addToCarthandler}
+          onClick={()=> addCart(this.props.id)}
         >
           Add to Cart
         </Button>
       </div>
     </>
   );
+}
+ 
 }
 
 export default ProductInfo;

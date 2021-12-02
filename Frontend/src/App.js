@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./styles/App.css";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -7,7 +6,6 @@ import Home from "./Pages/Home";
 import Navbar from "./Components/Navbar";
 import Login from "./Pages/Login";
 import Products from "./Pages/Products";
-import SearchPage from "./Pages/SearchPage";
 import CPUSearch from "./DetailsPage/CPUSearch";
 import inventory from "./Pages/Inventory";
 import CPUCreation from "./ProductCreationPage/CPUCreation";

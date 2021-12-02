@@ -16,22 +16,22 @@ export class DataProvider extends Component {
     addCart = (id) =>{
         const {products, cart} = this.state;
         const check = cart.every(item =>{
-            return item._id !== id
+            return item.id !== id
         })
         if(check){
             const data = products.filter(product =>{
-                return product._id === id
+                return product.id === id
             })
             this.setState({cart: [...cart,...data]})
         }else{
-            alert("The product has been added to cart.")
+            alert("The product has already been added to the cart!")
         }
     };
 
     reduction = id =>{
         const { cart } = this.state;
         cart.forEach(item =>{
-            if(item._id === id){
+            if(item.id === id){
                 item.count === 1 ? item.count = 1 : item.count -=1;
             }
         })
@@ -42,7 +42,7 @@ export class DataProvider extends Component {
     increase = id =>{
         const { cart } = this.state;
         cart.forEach(item =>{
-            if(item._id === id){
+            if(item.id === id){
                 item.count += 1;
             }
         })
@@ -55,6 +55,7 @@ export class DataProvider extends Component {
             const {cart} = this.state;
             cart.forEach((item, index) =>{
                 if(item._id === id){
+                    item.count = 1
                     cart.splice(index, 1)
                 }
             })

@@ -15,7 +15,7 @@ public class FakeRAMData  {
         RAMList = new ArrayList<>();
 
 
-        RAM Corsair = new RAM("Corsair 32GB, DDR4, 3200MHz 32GB DDR4 3200MHz Memory Module","Corsair",749,999,"s",32,3200);
+        RAM Corsair = new RAM("Corsair 32GB, DDR4, 3200MHz 32GB DDR4 3200MHz Memory Module","Corsair",749,999,"s",0,32,3200);
 
         RAMList.add(Corsair);
     }

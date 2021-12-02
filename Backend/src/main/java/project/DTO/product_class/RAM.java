@@ -7,8 +7,8 @@ public class RAM extends BasicProduct {
     int amount;
     int voltage;
 
-    public RAM(String name,String brand,double price,int warranty,String url, int amount, int voltage) {
-        super(name,brand,price,warranty,url);
+    public RAM(String name,String brand,double price,int warranty,String url, int count,int amount, int voltage) {
+        super(name,brand,price,warranty,url,count);
         this.amount = amount;
         this.voltage = voltage;
     }

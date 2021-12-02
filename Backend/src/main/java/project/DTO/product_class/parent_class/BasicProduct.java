@@ -19,16 +19,19 @@ public abstract class BasicProduct {
     private int warranty;
     @Column(name = "img")
     private String url;
+    @Column(name = "count")
+    private int count;
 
     public BasicProduct(){}
 
-    public BasicProduct(String name,String brand,double price,int warranty,String url)
+    public BasicProduct(String name,String brand,double price,int warranty,String url,int count)
     {
         this.name = name;
         this.brand = brand;
         this.price = price;
         this.warranty = warranty;
         this.url = url;
+        this.count = count;
     }
 
     public Long getId() {
@@ -77,6 +80,14 @@ public abstract class BasicProduct {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 
     @Override

@@ -7,8 +7,8 @@ public class Motherboard extends BasicProduct {
     private String chipset;
     private boolean wifi;
 
-    public Motherboard(String name,String brand,double price,int warranty,String url, String chipset, boolean wifi) {
-        super(name,brand,price,warranty,url);
+    public Motherboard(String name,String brand,double price,int warranty,String url,int count  ,String chipset, boolean wifi) {
+        super(name,brand,price,warranty,url,count);
         this.chipset = chipset;
         this.wifi = wifi;
     }

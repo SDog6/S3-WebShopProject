@@ -22,9 +22,9 @@ public class CPU extends BasicProduct {
     @Column(name = "threads")
     private int threads;
 
-    public CPU(String name,String brand,double price,int warranty,String url,double clockspeed,int powerconsum,String socket,int cores,int threads)
+    public CPU(String name,String brand,double price,int warranty,String url,int count,double clockspeed,int powerconsum,String socket,int cores,int threads)
     {
-        super(name,brand,price,warranty,url);
+        super(name,brand,price,warranty,url,count);
         this.clockspeed = clockspeed;
         this.powerconsum = powerconsum;
         this.socket = socket;
@@ -37,8 +37,7 @@ public class CPU extends BasicProduct {
         this.cores = s;
     }
 
-    public CPU()
-    {
+    public CPU() {
 
     }
 

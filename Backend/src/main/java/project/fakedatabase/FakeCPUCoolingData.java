@@ -13,7 +13,7 @@ public class FakeCPUCoolingData {
     public FakeCPUCoolingData() {
         CPUCList = new ArrayList<>();
 
-        CPUCooling Cooler = new CPUCooling("CoolerMaster Hyper 212 Black Edition","Cooler Master",43.99,2,"s",12);
+        CPUCooling Cooler = new CPUCooling("CoolerMaster Hyper 212 Black Edition","Cooler Master",43.99,2,"s",1,12);
 
         CPUCList.add(Cooler);
 
