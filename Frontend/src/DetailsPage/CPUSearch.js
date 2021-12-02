@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Row, Col } from "antd";
-import ProductInfo from "./ProductInfo";
+import ProductInfo from "./CPUProductInfo";
 import { Card } from "react-bootstrap";
 import "../styles/SearchCard.css"
 

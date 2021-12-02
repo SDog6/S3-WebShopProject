@@ -1,5 +1,5 @@
 import React from 'react';
-import CPUSearch from '../API/CPUSearch';
+import CPUSearch from '../DetailsPage/CPUSearch';
 
 function SearchPage(props) {
   return (

@@ -8,8 +8,9 @@ import Navbar from "./Components/Navbar";
 import Login from "./Pages/Login";
 import Products from "./Pages/Products";
 import SearchPage from "./Pages/SearchPage";
-import CPUSearch from "./API/CPUSearch";
+import CPUSearch from "./DetailsPage/CPUSearch";
 import inventory from "./Pages/Inventory";
+import CPUCreation from "./ProductCreationPage/CPUCreation";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
           <Route path="/login" exact component={Login} />
           <Route path="/CPU/:name" exact component={CPUSearch} />
           <Route path="/Inventory" exact component={inventory} />
+          <Route path="/CPUCreation" exact component={CPUCreation} />
+
         </Switch>
       </Router>
     </div>
