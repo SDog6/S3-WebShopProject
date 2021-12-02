@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.test.context.ContextConfiguration;
 import project.DTO.product_class.CPUCooling;
 import project.fakedatabase.FakeCPUCoolingData;
-import project.logic.CPUCoolingManager;
+import project.service.CPUCoolingManager;
 
 @ContextConfiguration
 public class CPUCoolingTest {

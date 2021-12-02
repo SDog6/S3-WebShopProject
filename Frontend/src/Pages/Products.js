@@ -11,12 +11,12 @@ function Products() {
   return (
     <div className='home'>
         <CPUList/>
-        <CPUCoolingList/>
+        {/* <CPUCoolingList/>
         <GPUList/>
         <MotherboardList/>
         <PowerSupplyList/>
         <RAMList/>
-        <StorageList/>
+        <StorageList/> */}
 
     </div>
   );

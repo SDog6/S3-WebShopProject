@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import project.DTO.user_class.User;
-import project.logic.UserService;
+import project.service.UserService;
 
 import java.util.Arrays;
 import java.util.Collection;

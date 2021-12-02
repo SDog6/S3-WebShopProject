@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.test.context.ContextConfiguration;
 import project.DTO.product_class.CPU;
 import project.fakedatabase.FakeCPUData;
-import project.logic.CPUManager;
+import project.service.CPUManager;
 
 @ContextConfiguration
 public class StorageTest {

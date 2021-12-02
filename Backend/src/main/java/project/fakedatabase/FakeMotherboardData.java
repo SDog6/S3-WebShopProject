@@ -2,12 +2,11 @@ package project.fakedatabase;
 
 import project.DTO.product_class.Motherboard;
 import project.DTO.product_class.parent_class.BasicProduct;
-import project.interfaces.IProductData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FakeMotherboardData implements IProductData {
+public class FakeMotherboardData {
 
     private final List<Motherboard> MotherbList;
 
@@ -20,7 +19,6 @@ public class FakeMotherboardData implements IProductData {
 
     }
 
-    @Override
     public boolean AddProduct(BasicProduct Product) {
         if (Product!=null){
             MotherbList.add((Motherboard)Product);
@@ -29,7 +27,6 @@ public class FakeMotherboardData implements IProductData {
         return false;
     }
 
-    @Override
     public boolean RemoveProduct(BasicProduct Product) {
         if (Product!=null){
             MotherbList.remove((Motherboard)Product);
@@ -38,7 +35,6 @@ public class FakeMotherboardData implements IProductData {
         return false;
     }
 
-    @Override
     public List<BasicProduct> GetAllProducts() {
         List<BasicProduct> temp = new ArrayList<>();
         for (Motherboard motherb:this.MotherbList) {
@@ -47,7 +43,7 @@ public class FakeMotherboardData implements IProductData {
         return temp;
     }
 
-    @Override
+
     public BasicProduct GetProductByName(String name) {
         for (Motherboard motherb: MotherbList) {
             if (motherb.getName().equals(name)) {

@@ -5,9 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import project.DTO.product_class.CPU;
-import project.interfaces.ICPURepo;
-import project.fakedatabase.FakeCPUData;
-import project.logic.CPUManager;
+import project.serviceInterfaces.ICPUService;
 
 import java.util.List;
 
@@ -16,24 +14,20 @@ import java.util.List;
 @RequestMapping("/CPU")
 public class CPUController {
 
-    private FakeCPUData fake = new FakeCPUData();
-    private CPUManager data = new CPUManager(fake);
-
-
     @Autowired
-    ICPURepo repository;
+    ICPUService logic;
 
 @GetMapping
 public ResponseEntity<List<CPU>> getAllCPUs(){
 List <CPU> test = null;
 
-test = repository.findAll();
+test = logic.GetAllCPUs();
     return ResponseEntity.ok().body(test);
 }
 
 @GetMapping("/Name/{name}")
 public ResponseEntity<CPU> getCPUByName(@PathVariable(value = "name") String name) {
-    CPU cpu = repository.GetCPUByName(name);
+    CPU cpu = logic.GetCPUByName(name);
     if (cpu != null) {
         return ResponseEntity.ok().body(cpu);
     } else {
@@ -43,7 +37,7 @@ public ResponseEntity<CPU> getCPUByName(@PathVariable(value = "name") String nam
 
 @PostMapping()
     public ResponseEntity createCPU(@RequestBody CPU cpu){
-     repository.save(cpu);
+     logic.AddCPU(cpu);
     return new ResponseEntity(HttpStatus.OK);
 
 }

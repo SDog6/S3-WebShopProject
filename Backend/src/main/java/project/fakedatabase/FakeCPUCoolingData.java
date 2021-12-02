@@ -2,12 +2,11 @@ package project.fakedatabase;
 
 import project.DTO.product_class.CPUCooling;
 import project.DTO.product_class.parent_class.BasicProduct;
-import project.interfaces.IProductData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FakeCPUCoolingData implements IProductData {
+public class FakeCPUCoolingData {
 
     private final List<CPUCooling> CPUCList;
 
@@ -20,7 +19,6 @@ public class FakeCPUCoolingData implements IProductData {
 
     }
 
-    @Override
     public boolean AddProduct(BasicProduct Product) {
         if (Product!=null){
             CPUCList.add((CPUCooling)Product);
@@ -29,7 +27,6 @@ public class FakeCPUCoolingData implements IProductData {
         return false;
     }
 
-    @Override
     public boolean RemoveProduct(BasicProduct Product) {
         if (Product!=null){
             CPUCList.remove((CPUCooling)Product);
@@ -38,7 +35,6 @@ public class FakeCPUCoolingData implements IProductData {
         return false;
     }
 
-    @Override
     public List<BasicProduct> GetAllProducts() {
         List<BasicProduct> temp = new ArrayList<>();
         for (CPUCooling cpuc:this.CPUCList) {
@@ -47,7 +43,6 @@ public class FakeCPUCoolingData implements IProductData {
         return temp;
     }
 
-    @Override
     public BasicProduct GetProductByName(String name) {
         for (CPUCooling cpuc: CPUCList) {
             if (cpuc.getName().equals(name)) {

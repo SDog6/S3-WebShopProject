@@ -3,7 +3,7 @@ package project.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import project.logic.UserService;
+import project.service.UserService;
 import project.security.UserCreateRequest;
 
 

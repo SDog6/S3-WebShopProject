@@ -2,12 +2,11 @@ package project.fakedatabase;
 
 import project.DTO.product_class.Storage;
 import project.DTO.product_class.parent_class.BasicProduct;
-import project.interfaces.IProductData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FakeStorageData implements IProductData {
+public class FakeStorageData{
 
     private final List<Storage> StorageList;
 
@@ -20,7 +19,6 @@ public class FakeStorageData implements IProductData {
 
     }
 
-    @Override
     public boolean AddProduct(BasicProduct Product) {
         if (Product!=null){
             StorageList.add((Storage)Product);
@@ -29,7 +27,6 @@ public class FakeStorageData implements IProductData {
         return false;
     }
 
-    @Override
     public boolean RemoveProduct(BasicProduct Product) {
         if (Product!=null){
             StorageList.remove((Storage)Product);
@@ -38,7 +35,6 @@ public class FakeStorageData implements IProductData {
         return false;
     }
 
-    @Override
     public List<BasicProduct> GetAllProducts() {
         List<BasicProduct> temp = new ArrayList<>();
         for (Storage storage:this.StorageList) {
@@ -47,7 +43,6 @@ public class FakeStorageData implements IProductData {
         return temp;
     }
 
-    @Override
     public BasicProduct GetProductByName(String name) {
         for (Storage storage: StorageList) {
             if (storage.getName().equals(name)) {

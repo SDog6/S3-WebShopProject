@@ -2,12 +2,11 @@ package project.fakedatabase;
 
 import project.DTO.product_class.RAM;
 import project.DTO.product_class.parent_class.BasicProduct;
-import project.interfaces.IProductData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FakeRAMData implements IProductData {
+public class FakeRAMData  {
 
     private final List<RAM> RAMList;
 
@@ -21,7 +20,6 @@ public class FakeRAMData implements IProductData {
         RAMList.add(Corsair);
     }
 
-    @Override
     public boolean AddProduct(BasicProduct Product) {
         if (Product!=null){
             RAMList.add((RAM)Product);
@@ -30,7 +28,6 @@ public class FakeRAMData implements IProductData {
         return false;
     }
 
-    @Override
     public boolean RemoveProduct(BasicProduct Product) {
         if (Product!=null){
             RAMList.remove((RAM)Product);
@@ -39,7 +36,6 @@ public class FakeRAMData implements IProductData {
         return false;
     }
 
-    @Override
     public List<BasicProduct> GetAllProducts() {
         List<BasicProduct> temp = new ArrayList<>();
         for (RAM ram:this.RAMList) {
@@ -48,7 +44,6 @@ public class FakeRAMData implements IProductData {
         return temp;
     }
 
-    @Override
     public BasicProduct GetProductByName(String name) {
         for (RAM ram: RAMList) {
             if (ram.getName().equals(name)) {

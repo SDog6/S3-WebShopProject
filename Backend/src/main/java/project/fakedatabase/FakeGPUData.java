@@ -2,12 +2,11 @@ package project.fakedatabase;
 
 import project.DTO.product_class.GPU;
 import project.DTO.product_class.parent_class.BasicProduct;
-import project.interfaces.IProductData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FakeGPUData implements IProductData {
+public class FakeGPUData {
 
     private final List<GPU> GPUList;
 
@@ -20,7 +19,6 @@ public class FakeGPUData implements IProductData {
 
     }
 
-    @Override
     public boolean AddProduct(BasicProduct Product) {
         if (Product!=null){
             GPUList.add((GPU)Product);
@@ -29,7 +27,6 @@ public class FakeGPUData implements IProductData {
         return false;
     }
 
-    @Override
     public boolean RemoveProduct(BasicProduct Product) {
         if (Product!=null){
             GPUList.remove((GPU)Product);
@@ -38,7 +35,6 @@ public class FakeGPUData implements IProductData {
         return false;
     }
 
-    @Override
     public List<BasicProduct> GetAllProducts() {
         List<BasicProduct> temp = new ArrayList<>();
         for (GPU cpu:this.GPUList) {
@@ -47,7 +43,6 @@ public class FakeGPUData implements IProductData {
         return temp;
     }
 
-    @Override
     public BasicProduct GetProductByName(String name) {
         for (GPU gpu: GPUList) {
             if (gpu.getName().equals(name)) {

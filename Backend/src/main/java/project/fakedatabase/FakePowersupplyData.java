@@ -2,12 +2,11 @@ package project.fakedatabase;
 
 import project.DTO.product_class.Powersupply;
 import project.DTO.product_class.parent_class.BasicProduct;
-import project.interfaces.IProductData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FakePowersupplyData implements IProductData {
+public class FakePowersupplyData {
 
     private final List<Powersupply> PowerSupplyList;
 
@@ -22,7 +21,6 @@ public class FakePowersupplyData implements IProductData {
 
     }
 
-    @Override
     public boolean AddProduct(BasicProduct Product) {
         if (Product!=null){
             PowerSupplyList.add((Powersupply)Product);
@@ -31,7 +29,6 @@ public class FakePowersupplyData implements IProductData {
         return false;
     }
 
-    @Override
     public boolean RemoveProduct(BasicProduct Product) {
         if (Product!=null){
             PowerSupplyList.remove((Powersupply)Product);
@@ -40,7 +37,7 @@ public class FakePowersupplyData implements IProductData {
         return false;
     }
 
-    @Override
+
     public List<BasicProduct> GetAllProducts() {
         List<BasicProduct> temp = new ArrayList<>();
         for (Powersupply power:this.PowerSupplyList) {
@@ -49,7 +46,7 @@ public class FakePowersupplyData implements IProductData {
         return temp;
     }
 
-    @Override
+
     public BasicProduct GetProductByName(String name) {
         for (Powersupply power: PowerSupplyList) {
             if (power.getName().equals(name)) {
