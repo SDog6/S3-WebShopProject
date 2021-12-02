@@ -11,9 +11,12 @@ import SearchPage from "./Pages/SearchPage";
 import CPUSearch from "./DetailsPage/CPUSearch";
 import inventory from "./Pages/Inventory";
 import CPUCreation from "./ProductCreationPage/CPUCreation";
+import { DataProvider } from "./Components/Cart/Context";
+import Cart from "./Components/Cart/Cart";
 
 function App() {
   return (
+    <DataProvider>
     <div className="App">
       <Router>
         <Navbar />
@@ -24,10 +27,12 @@ function App() {
           <Route path="/CPU/:name" exact component={CPUSearch} />
           <Route path="/Inventory" exact component={inventory} />
           <Route path="/CPUCreation" exact component={CPUCreation} />
+          <Route path="/Cart" exact component={Cart} />
 
         </Switch>
       </Router>
     </div>
+    </DataProvider>
   );
 }
 

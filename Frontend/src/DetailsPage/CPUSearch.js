@@ -4,10 +4,13 @@ import { Row, Col } from "antd";
 import ProductInfo from "./CPUProductInfo";
 import { Card } from "react-bootstrap";
 import "../styles/SearchCard.css"
+import { DataContext } from "../Components/Cart/Context";
 
 function CPUSearch(props) {
   const PropsName = props.match.params.name;
   const [Product, setProduct] = useState([]);
+  const contextType = DataContext;
+  const {addCart} = this.context;
 
   useEffect(() => {
     axios
