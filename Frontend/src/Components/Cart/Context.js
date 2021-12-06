@@ -23,6 +23,7 @@ export class DataProvider extends Component {
                 return product.id === id
             })
             this.setState({cart: [...cart,...data]})
+            alert("Product added to cart!")
         }else{
             alert("The product has already been added to the cart!")
         }

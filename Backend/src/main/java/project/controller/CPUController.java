@@ -39,7 +39,6 @@ public ResponseEntity<CPU> getCPUByName(@PathVariable(value = "name") String nam
     public ResponseEntity createCPU(@RequestBody CPU cpu){
      logic.AddCPU(cpu);
     return new ResponseEntity(HttpStatus.OK);
-
 }
 
 }

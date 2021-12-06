@@ -20,11 +20,11 @@ function Navbar() {
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-          <Link to='cart' className='topnavbutton'>
+          <Link to='/cart' className='topnavbutton'>
             <RemixIco.RiShoppingCart2Line/>
             Cart
           </Link>
-          <Link to='login' className='topnavbutton'>
+          <Link to='/login' className='topnavbutton'>
             <RemixIco.RiLoginBoxLine/>
             Log in
           </Link>

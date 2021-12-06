@@ -13,7 +13,7 @@ export class Cart extends Component {
     render() {
         const {cart,increase,reduction,removeProduct,total} = this.context;
         if(cart.length === 0){
-            return <h2 style={{textAlign:"center"}}>Nothings Product</h2>
+            return <h2 className={`NoProducts`} style={{textAlign:"center"}}>No products in cart</h2>
         }else{
             return (
                 <>
@@ -22,7 +22,7 @@ export class Cart extends Component {
                             <div className="details cart" key={item._id}>
                                                                     <div className="delete" onClick={() => removeProduct(item._id)}>X</div>
 
-                                <img src={item.url} alt="" />
+                                <img class = "CartImg"src={item.url} alt="" />
                                 <div className="box">
                                     <div className="row">
                                         <h2>{item.name}</h2>
