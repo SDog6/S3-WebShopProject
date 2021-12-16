@@ -11,6 +11,7 @@ import CreateCPUPage from "./ProductCreationPage/CreateCPUPage";
 import { DataProvider } from "./Components/Cart/Context";
 import Cart from "./Components/Cart/Cart";
 import Logout from "./Components/Logout";
+import Inventory from "./Pages/Inventory";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           <Route path="/CPU/:name" exact component={CPUSearch} />
           <Route path="/CPUCreation" exact component={CreateCPUPage} />
           <Route path="/Cart" exact component={Cart} />
+          <Route path="/Inventory" exact component={Inventory} />
+
+
 
         </Switch>
       </Router>

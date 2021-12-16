@@ -7,7 +7,7 @@ import * as MdIcons from "react-icons/md";
 
 
 
-export const SidebarData = [
+export const AdminSidebarData = [
   {
     title: 'Home',
     path: '/',
@@ -18,6 +18,19 @@ export const SidebarData = [
     title: 'Products',
     path: '/products',
     icon: <FaIcons.FaCartPlus />,
+    cName: 'nav-text'
+  },
+  {
+    title: 'Account',
+    path: '/account',
+    icon: <VsIcons.VscAccount />,
+    cName: 'nav-text'
+  },
+  
+  {
+    title: 'Inventory',
+    path: '/Inventory',
+    icon: <MdIcons.MdInventory />,
     cName: 'nav-text'
   },
   {

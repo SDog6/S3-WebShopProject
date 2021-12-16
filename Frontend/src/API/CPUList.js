@@ -12,7 +12,7 @@ class CPUList extends Component{
         const {addCart,products} = this.context;
         return(
             <div>
-                <h1>CPUs</h1>
+                <h1>Products</h1>
                 {
                     products.map(product => <div className = 'wrapper'><Card  img = {product.url} title = {product.name} price = {product.price} brand = {product.brand} warranty = {product.warranty} id = {product.id}/> </div> )
                 }

@@ -6,12 +6,61 @@ import { Link } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
 import "../styles/Navbar.css";
 import { IconContext } from "react-icons";
-import Search from "./Searchbar";
+import jwtDecode from "jwt-decode";
+import { UserSidebarData } from "./UserSideData";
+import { AdminSidebarData } from "./AdminSideData";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
+  var data = [];
+
+  const token = localStorage.getItem("token")
+  var decoded = {}
+  var role = ''
+  if(token != null){
+    const decoded = jwtDecode(token)
+    role = decoded.role
+  }
+
+  if(role === "USER"){
+    data = UserSidebarData.map((item, index) => {
+      return (
+        <li key={index} className={item.cName}>
+          <Link to={item.path}>
+            {item.icon}
+            <span>{item.title}</span>
+          </Link>
+        </li>
+      );
+    })
+  }
+  else if(role === "ADMIN"){
+    data = AdminSidebarData.map((item, index) => {
+      return (
+        <li key={index} className={item.cName}>
+          <Link to={item.path}>
+            {item.icon}
+            <span>{item.title}</span>
+          </Link>
+        </li>
+      );
+    })
+  }
+  else {
+    data = SidebarData.map((item, index) => {
+      return (
+        <li key={index} className={item.cName}>
+          <Link to={item.path}>
+            {item.icon}
+            <span>{item.title}</span>
+          </Link>
+        </li>
+      );
+    })
+  }
+
 
   return (
     <>
@@ -43,16 +92,8 @@ function Navbar() {
                 <AiIcons.AiOutlineClose />
               </Link>
             </li>
-            {SidebarData.map((item, index) => {
-              return (
-                <li key={index} className={item.cName}>
-                  <Link to={item.path}>
-                    {item.icon}
-                    <span>{item.title}</span>
-                  </Link>
-                </li>
-              );
-            })}
+            {data}
+            
           </ul>
         </nav>
       </IconContext.Provider>
