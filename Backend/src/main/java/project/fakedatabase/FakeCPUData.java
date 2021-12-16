@@ -1,6 +1,6 @@
 package project.fakedatabase;
 
-import project.DTO.product_class.CPU;
+import project.Models.product_class.CPU;
 import project.repositoryInterfaces.ICPUData;
 
 import java.util.ArrayList;

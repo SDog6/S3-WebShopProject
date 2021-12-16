@@ -1,6 +1,6 @@
-package project.DTO.product_class;
+package project.Models.product_class;
 
-import project.DTO.product_class.parent_class.BasicProduct;
+import project.Models.product_class.parent_class.BasicProduct;
 
 import javax.persistence.*;
 
@@ -8,9 +8,6 @@ import javax.persistence.*;
 @Table(name = "cpu")
 public class CPU extends BasicProduct {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     @Column(name = "clockspeed")
     private double clockspeed;
     @Column(name = "powerconsum")
@@ -41,13 +38,6 @@ public class CPU extends BasicProduct {
 
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public void setClockspeed(double clockspeed) {
         this.clockspeed = clockspeed;

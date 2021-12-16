@@ -2,7 +2,7 @@ package project.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import project.DTO.product_class.CPU;
+import project.Models.product_class.CPU;
 import project.repositoryInterfaces.ICPUData;
 import project.DBAccessInterfaces.ICPURepo;
 

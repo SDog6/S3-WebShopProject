@@ -1,7 +1,7 @@
 package project.DBAccessInterfaces;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import project.DTO.user_class.User;
+import project.Models.user_class.User;
 
 import java.util.Optional;
 

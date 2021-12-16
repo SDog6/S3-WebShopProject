@@ -26,6 +26,7 @@ export const SidebarData = [
     icon: <VsIcons.VscAccount />,
     cName: 'nav-text'
   },
+  
   {
     title: 'Inventory',
     path: '/Inventory',

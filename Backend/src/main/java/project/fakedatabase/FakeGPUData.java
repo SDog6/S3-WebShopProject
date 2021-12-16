@@ -1,7 +1,7 @@
 package project.fakedatabase;
 
-import project.DTO.product_class.GPU;
-import project.DTO.product_class.parent_class.BasicProduct;
+import project.Models.product_class.GPU;
+import project.Models.product_class.parent_class.BasicProduct;
 
 import java.util.ArrayList;
 import java.util.List;

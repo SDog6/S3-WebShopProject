@@ -1,13 +1,14 @@
-package project.DTO.product_class.parent_class;
+package project.Models.product_class.parent_class;
 
 import javax.persistence.*;
 
-@MappedSuperclass
+@Entity
+@Table(name = "basic")
+@Inheritance(strategy=InheritanceType.JOINED)
 public abstract class BasicProduct {
-
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE,generator = "ConfirmationCodeGenerator")
+    @TableGenerator(table = "SEQUENCES", name = "ConfirmationCodeGenerator")
     private Long id;
     @Column(name = "name")
     private String name;

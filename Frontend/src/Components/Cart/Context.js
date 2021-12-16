@@ -89,7 +89,7 @@ export class DataProvider extends Component {
             this.setState({total: dataTotal});
         }
 
-        axios.get('http://localhost:8080/CPU')
+        axios.get('http://localhost:8080/BasicProduct')
         .then(response =>{
             this.setState({
                 products: response.data

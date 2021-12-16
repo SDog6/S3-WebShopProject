@@ -1,4 +1,4 @@
-package project.DTO.user_class;
+package project.Models.user_class;
 
 
 import lombok.Getter;

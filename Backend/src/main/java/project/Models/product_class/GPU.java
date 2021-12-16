@@ -1,6 +1,6 @@
-package project.DTO.product_class;
+package project.Models.product_class;
 
-import project.DTO.product_class.parent_class.BasicProduct;
+import project.Models.product_class.parent_class.BasicProduct;
 
 
 public class GPU extends BasicProduct {

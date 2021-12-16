@@ -1,6 +1,6 @@
 package project.serviceInterfaces;
 
-import project.DTO.product_class.CPU;
+import project.Models.product_class.CPU;
 
 import java.util.List;
 

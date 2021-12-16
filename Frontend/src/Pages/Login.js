@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { Redirect } from 'react-router';
 import '../styles/Login.css'
+import { FaWindows } from 'react-icons/fa';
 
 
 class Login extends Component{
@@ -29,7 +30,7 @@ class Login extends Component{
                 console.log(response);
                 const token = response.data.Authorization;
                 localStorage.setItem("token", token);
-                this.props.history.push("/");
+                window.location.href = '/';
 
             
             },

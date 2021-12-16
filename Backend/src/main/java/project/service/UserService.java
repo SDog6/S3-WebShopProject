@@ -3,7 +3,7 @@ package project.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import project.DTO.user_class.User;
+import project.Models.user_class.User;
 import project.DBAccessInterfaces.IUserRepo;
 import project.security.UserCreateRequest;
 
