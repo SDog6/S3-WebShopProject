@@ -1,12 +1,12 @@
 package project.fakedatabase;
 
 import project.Models.product_class.GPU;
-import project.Models.product_class.parent_class.BasicProduct;
+import project.repositoryInterfaces.IGPUData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FakeGPUData {
+public class FakeGPUData implements IGPUData {
 
     private final List<GPU> GPUList;
 
@@ -19,31 +19,31 @@ public class FakeGPUData {
 
     }
 
-    public boolean AddProduct(BasicProduct Product) {
-        if (Product!=null){
-            GPUList.add((GPU)Product);
+    @Override
+    public boolean AddGPU(GPU product) {
+        if(product != null){
+            GPUList.add(product);
             return true;
         }
         return false;
     }
 
-    public boolean RemoveProduct(BasicProduct Product) {
-        if (Product!=null){
-            GPUList.remove((GPU)Product);
+    @Override
+    public boolean RemoveGPU(GPU product) {
+        if(product != null){
+            GPUList.remove(product);
             return true;
         }
         return false;
     }
 
-    public List<BasicProduct> GetAllProducts() {
-        List<BasicProduct> temp = new ArrayList<>();
-        for (GPU cpu:this.GPUList) {
-            temp.add(cpu);
-        }
-        return temp;
+    @Override
+    public List<GPU> GetAllGPUs() {
+        return GPUList;
     }
 
-    public BasicProduct GetProductByName(String name) {
+    @Override
+    public GPU GetGPUByName(String name) {
         for (GPU gpu: GPUList) {
             if (gpu.getName().equals(name)) {
                 return gpu;
@@ -51,4 +51,5 @@ public class FakeGPUData {
         }
         return null;
     }
+
 }

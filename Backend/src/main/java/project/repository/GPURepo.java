@@ -1,43 +1,38 @@
-package project.service;
+package project.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
+import project.DBAccessInterfaces.IGPURepo;
 import project.Models.product_class.GPU;
 import project.repositoryInterfaces.IGPUData;
-import project.serviceInterfaces.IGPUService;
 
 import java.util.List;
 
-@Service
-public class GPUManager implements IGPUService {
-
-    IGPUData data;
+@Repository
+public class GPURepo implements IGPUData {
 
     @Autowired
-    public GPUManager(IGPUData data){
-        this.data = data;
-    }
-
+    IGPURepo repo;
 
     @Override
     public boolean AddGPU(GPU product) {
-        data.AddGPU(product);
+        repo.save(product);
         return true;
     }
 
     @Override
     public boolean RemoveGPU(GPU product) {
-        data.RemoveGPU(product);
+        repo.delete(product);
         return true;
     }
 
     @Override
     public List<GPU> GetAllGPUs() {
-        return data.GetAllGPUs();
+        return repo.findAll();
     }
 
     @Override
     public GPU GetGPUByName(String name) {
-        return data.GetGPUByName(name);
+        return repo.getGPUByName(name);
     }
 }
