@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import project.DBAccessInterfaces.IInventoryRepo;
+import project.Models.PInventory;
 import project.Models.product_class.CPU;
 import project.serviceInterfaces.ICPUService;
 
@@ -16,6 +18,8 @@ public class CPUController {
 
     @Autowired
     ICPUService logic;
+    @Autowired
+    IInventoryRepo inv;
 
 @GetMapping
 public ResponseEntity<List<CPU>> getAllCPUs(){
@@ -38,6 +42,7 @@ public ResponseEntity<CPU> getCPUByName(@PathVariable(value = "name") String nam
 @PostMapping()
     public ResponseEntity createCPU(@RequestBody CPU cpu){
      logic.AddCPU(cpu);
+     inv.save(new PInventory(cpu,10));
     return new ResponseEntity(HttpStatus.OK);
 }
 

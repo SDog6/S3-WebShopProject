@@ -96,12 +96,8 @@ function CreateCPUPage(props) {
 
     Axios.post('http://localhost:8080/CPU', cpu).then((response) => {
         console.log(response.data)
-         
           alert("Product Successfully Uploaded");
-        
       });
-
-
   };
 
   return (

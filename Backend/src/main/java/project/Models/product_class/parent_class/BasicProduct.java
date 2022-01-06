@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "basic")
 @Inheritance(strategy=InheritanceType.JOINED)
-public abstract class BasicProduct {
+public class BasicProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE,generator = "ConfirmationCodeGenerator")
     @TableGenerator(table = "SEQUENCES", name = "ConfirmationCodeGenerator")

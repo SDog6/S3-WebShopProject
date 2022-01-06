@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/BasicProduct")
-public class BasicBitchController {
+public class BasicProductController {
 
     @Autowired
     IBasicProductRepo logic;

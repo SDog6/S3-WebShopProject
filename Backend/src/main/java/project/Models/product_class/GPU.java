@@ -2,7 +2,12 @@ package project.Models.product_class;
 
 import project.Models.product_class.parent_class.BasicProduct;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name = "gpu")
 public class GPU extends BasicProduct {
 
     private int clockspeed;
@@ -26,6 +31,9 @@ public class GPU extends BasicProduct {
         this.fans = fans;
     }
 
+    public GPU() {
+
+    }
 
 
     public int getClockspeed() {
