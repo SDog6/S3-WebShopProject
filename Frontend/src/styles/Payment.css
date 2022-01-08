@@ -24,3 +24,7 @@
     line-height: 1.1;
     margin: 10px;
 }
+
+.order {
+    place-content: center;
+}

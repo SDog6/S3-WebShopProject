@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import project.DBAccessInterfaces.IBasicProductRepo;
 import project.DBAccessInterfaces.IInventoryRepo;
 import project.DBAccessInterfaces.IOrder;
 import project.Models.Order;
@@ -24,8 +23,6 @@ public class OrderController {
     @Autowired
     IInventoryRepo inventory;
 
-    @Autowired
-    IBasicProductRepo l;
 
     @GetMapping
     public ResponseEntity<List<Order>> GetOrders(){
@@ -47,16 +44,17 @@ public class OrderController {
         List<BasicProduct> orderedItems = new ArrayList<>();
         for (BasicProduct product:temp.getProducts()) {
            PInventory check =  inventory.getByProduct_Id(product.getId());
-           if (check.getAmount() > product.getCount()){
+           if (check.getAmount() >= product.getCount()){
                int newamount = check.getAmount() - product.getCount();
                check.setAmount(newamount);
                inventory.save(check);
                orderedItems.add(product);
            }
         }
-        logic.save(new Order(orderedItems,temp.getUsername(),temp.getPrice()));
-
-
-        return new ResponseEntity(HttpStatus.OK);
+        if (orderedItems.size()>0){
+            logic.save(new Order(orderedItems,temp.getUsername(),temp.getPrice()));
+            return new ResponseEntity(HttpStatus.OK);
+        }
+        return new ResponseEntity(HttpStatus.CONFLICT);
     }
 }

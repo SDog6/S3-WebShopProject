@@ -29,7 +29,7 @@ class Payment extends Component {
       .post(`http://localhost:8080/Order`,{ products : pls,username:username,price:CartTotal})
       .then((response) => {
         console.log(response.data);
-        alert("Product Successfully Uploaded");
+        alert(response.data);
       });
   };
 
@@ -54,6 +54,7 @@ class Payment extends Component {
             value="mac"
             name="platform"
             type="radio"
+            checked="true"
             onChange={this.handleChange}
           />
         </div>

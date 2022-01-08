@@ -27,4 +27,11 @@ public class InventoryController {
         logic.save(inv);
         return new ResponseEntity(HttpStatus.OK);
     }
+    @PostMapping("/IncreaseAmount/{prodId}/{amount}")
+    public ResponseEntity IncreaseAmount(@PathVariable(value = "prodId") Long ss,@PathVariable(value = "amount") int amount){
+        PInventory increase = logic.getByProduct_Id(ss);
+        increase.setAmount(increase.getAmount() + amount);
+        logic.save(increase);
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }

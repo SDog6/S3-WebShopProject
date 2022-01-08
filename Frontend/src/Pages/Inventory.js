@@ -3,39 +3,71 @@ import { Table } from "reactstrap";
 import { Button } from "reactstrap";
 import { DataContext } from "../Components/Cart/Context";
 import "../styles/Inventory.css"
+import axios from "axios";
 
 class Inventory extends Component {
-  static contextType = DataContext;
+  constructor(props) {
+    super(props);
+    this.state = {
+      inventory: [],
+    };
+  }
+
+  componentDidMount() {
+      axios.get(`http://localhost:8080/Inventory`).then((response) => {
+        this.setState({
+          inventory: response.data,
+        });
+        console.log(this.state.inventory);
+      });
+  }
+  
+  update(){
+    axios.get(`http://localhost:8080/Inventory`).then((response) => {
+      this.setState({
+        inventory: response.data,
+      });
+      console.log(this.state.inventory);
+    });
+  }
+
+  increaseInv(e,id) {
+    e.preventDefault();
+    console.log(id)
+    axios.post(`http://localhost:8080/Inventory/IncreaseAmount/${id}/5`)
+    .then((response) => { 
+        console.log(response);
+        this.update();
+      });
+   }
+
 
   render() {
-    const { products } = this.context;
     return (
       <div>
         <br></br>
-        <Button className = "InventoryButton" variant="primary" href={"/"}>
-          View all CPUs
+        <Button className = "InventoryButton" variant="primary" href={"/CPUCreation"}>
+          Create new CPU
         </Button>
         <Button className = "InventoryButton" variant="primary" href={"/"}>
-          View all CPU Coolingss
+          Create new CPU Cooling
         </Button>
         <Button className = "InventoryButton" variant="primary" href={"/"}>
-          View all GPUs
+        Create new GPU
         </Button>
         <Button className = "InventoryButton" variant="primary" href={"/"}>
-          View all MotherBoards
+          Create new MotherBoard
         </Button>
         <Button className = "InventoryButton" variant="primary" href={"/" }>
-          View all Power supplies
+        Create new Powersupply
         </Button>
         <Button className = "InventoryButton" variant="primary" href={"/"}>
-          View all RAMs
+        Create new RAM
         </Button>
         <Button className = "InventoryButton" variant="primary" href={"/"}>
-          View all Storages
+        Create new Storage
         </Button>
-        <Button className = "InventoryButton" variant="primary" href={"/"}>
-          View all CPUs
-        </Button>
+     
         <br></br>
 
         <Table>
@@ -45,25 +77,21 @@ class Inventory extends Component {
               <th>Brand</th>
               <th>Price</th>
               <th>Warranty</th>
-              <th></th>
+              <th>Amount</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            {products.map((product) => (
+            {this.state.inventory.map((item) => (
               <tr>
-                <td>{product.name}</td>
-                <td>{product.brand}</td>
-                <td>{product.price}</td>
-                <td>{product.warranty}</td>
+                <td>{item.product.name}</td>
+                <td>{item.product.brand}</td>
+                <td>{item.product.price}</td>
+                <td>{item.product.warranty}</td>
+                <td>{item.amount}</td>
                 <td>
-                  <Button variant="primary" href={"/" + product.name}>
-                    UPDATE
-                  </Button>
-                </td>
-                <td>
-                  <Button variant="primary" href={"/" + product.name}>
-                    DELETE
+                  <Button variant="primary" onClick={(e) => {this.increaseInv(e,item.product.id)}}>
+                    Increase amount by 5
                   </Button>
                 </td>
               </tr>

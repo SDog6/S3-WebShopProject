@@ -13,6 +13,7 @@ import Cart from "./Components/Cart/Cart";
 import Logout from "./Components/Logout";
 import Payment from "./Pages/Payment";
 import Inventory from "./Pages/Inventory";
+import Account from "./Pages/Account";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/Cart" exact component={Cart} />
           <Route path="/payment" exact component={Payment} />
           <Route path="/Inventory" exact component={Inventory} />
+          <Route path="/account" exact component={Account} />
         </Switch>
       </Router>
     </div>
