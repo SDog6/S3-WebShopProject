@@ -2,7 +2,7 @@ package project.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import project.DBAccessInterfaces.IGPURepo;
+import project.DBAccessInterfaces.productAccess.IGPURepo;
 import project.Models.product_class.GPU;
 import project.repositoryInterfaces.IGPUData;
 

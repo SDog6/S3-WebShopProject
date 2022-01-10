@@ -29,7 +29,9 @@ class Payment extends Component {
       .post(`http://localhost:8080/Order`,{ products : pls,username:username,price:CartTotal})
       .then((response) => {
         console.log(response.data);
-        alert(response.data);
+        localStorage.removeItem("dataCart")
+        localStorage.removeItem("dataTotal")
+        alert("Order created");
       });
   };
 
