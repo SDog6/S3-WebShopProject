@@ -1,7 +1,15 @@
 package project.Models.product_class;
 
+import lombok.NoArgsConstructor;
 import project.Models.product_class.parent_class.BasicProduct;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "powersupply")
+@NoArgsConstructor
 public class Powersupply extends BasicProduct {
 
     private int capacity;
@@ -11,9 +19,11 @@ public class Powersupply extends BasicProduct {
         this.capacity = capacity;
     }
 
-
-
     public int getCapacity() {
         return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 }

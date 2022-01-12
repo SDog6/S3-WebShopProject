@@ -1,7 +1,15 @@
 package project.Models.product_class;
 
+import lombok.NoArgsConstructor;
 import project.Models.product_class.parent_class.BasicProduct;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "motherboard")
+@NoArgsConstructor
 public class Motherboard extends BasicProduct {
 
     private String chipset;
@@ -13,14 +21,19 @@ public class Motherboard extends BasicProduct {
         this.wifi = wifi;
     }
 
-
-
     public String getChipset() {
         return chipset;
+    }
+
+    public void setChipset(String chipset) {
+        this.chipset = chipset;
     }
 
     public boolean isWifi() {
         return wifi;
     }
 
+    public void setWifi(boolean wifi) {
+        this.wifi = wifi;
+    }
 }

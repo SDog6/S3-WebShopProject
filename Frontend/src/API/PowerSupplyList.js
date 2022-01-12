@@ -1,6 +1,7 @@
 import React,{Component} from "react";
 import axios from "axios";
 import Card from "../Cards/Card";
+import PowerSupplyCard from "../Cards/PowerSupplyCard";
 
 
 class PowerSupplyList extends Component{
@@ -35,7 +36,7 @@ class PowerSupplyList extends Component{
             <div>
                 <h1>Power Supplies</h1>
                 {
-                    products.map(product =>  <div className = 'wrapper'> <Card title = {product.name} price = {product.price} brand = {product.brand} warranty = {product.warranty}/> </div>)
+                    products.map(product => <div className = 'wrapper'><PowerSupplyCard  img = {product.url} title = {product.name} price = {product.price} brand = {product.brand} warranty = {product.warranty} id = {product.id}/> </div> )
                 }
             </div>
         )

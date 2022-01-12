@@ -1,39 +1,38 @@
-//package project.controller;
-//
-//import project.DTO.product_class.Motherboard;
-//import project.fakedatabase.FakeMotherboardData;
-//import org.springframework.http.ResponseEntity;
-//import org.springframework.web.bind.annotation.CrossOrigin;
-//import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RestController;
-//import project.service.MotherboardManager;
-//
-//import java.util.List;
-//
-//@CrossOrigin(origins = "http://localhost:3000")
-//@RestController
-//@RequestMapping("/Motherboard")
-//public class MotherboardController {
-//
-//    private FakeMotherboardData fake = new FakeMotherboardData();
-//    private MotherboardManager data = new MotherboardManager(fake);
-//
-//    @GetMapping
-//    public ResponseEntity<List<Motherboard>> getAllMotherb(){
-//        List <Motherboard> test = null;
-//
-//        test = data.GetAllMotherboards();
-//
-//
-//        if(test != null){
-//            return ResponseEntity.ok().body(test);
-//
-//        }
-//        else {
-//            return ResponseEntity.notFound().build();
-//
-//        }
-//    }
-//
-//}
+package project.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import project.DBAccessInterfaces.IInventoryRepo;
+import project.Models.PInventory;
+import project.Models.product_class.Motherboard;
+import project.serviceInterfaces.IBasicProductService;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/Motherboard")
+public class MotherboardController {
+
+    @Autowired
+    IBasicProductService logic;
+
+    @Autowired
+    IInventoryRepo inv;
+
+    @GetMapping
+    public ResponseEntity<List<Motherboard>> getAllGPUs(){
+        List<Motherboard> test = null;
+        test = logic.getAllMotherboards();
+        return ResponseEntity.ok().body(test);
+    }
+
+    @PostMapping()
+    public ResponseEntity createGPU(@RequestBody Motherboard m){
+        logic.AddBasicProduct(m);
+        inv.save(new PInventory(m,10));
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+}

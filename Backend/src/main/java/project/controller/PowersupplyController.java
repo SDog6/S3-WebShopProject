@@ -1,40 +1,38 @@
-//package project.controller;
-//
-//import project.DTO.product_class.Powersupply;
-//import org.springframework.http.ResponseEntity;
-//import org.springframework.web.bind.annotation.CrossOrigin;
-//import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RestController;
-//import project.fakedatabase.FakePowersupplyData;
-//import project.service.PowersupplyManager;
-//
-//import java.util.List;
-//
-//@CrossOrigin(origins = "http://localhost:3000")
-//@RestController
-//@RequestMapping("/PowerSupply")
-//public class PowersupplyController {
-//
-//
-//    private FakePowersupplyData fake = new FakePowersupplyData();
-//    private PowersupplyManager data = new PowersupplyManager(fake);
-//
-//
-//    @GetMapping
-//    public ResponseEntity<List<Powersupply>> getAllPowersupply(){
-//        List <Powersupply> test = null;
-//
-//        test = data.GetAllPowersupplys();
-//
-//        if(test != null){
-//            return ResponseEntity.ok().body(test);
-//
-//        }
-//        else {
-//            return ResponseEntity.notFound().build();
-//
-//        }
-//    }
-//
-//}
+package project.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import project.DBAccessInterfaces.IInventoryRepo;
+import project.Models.PInventory;
+import project.Models.product_class.Powersupply;
+import project.serviceInterfaces.IBasicProductService;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/PowerSupply")
+public class PowersupplyController {
+
+    @Autowired
+    IBasicProductService logic;
+
+    @Autowired
+    IInventoryRepo inv;
+
+    @GetMapping
+    public ResponseEntity<List<Powersupply>> getAllPowers(){
+        List<Powersupply> test = null;
+        test = logic.getAllPowersupplies();
+        return ResponseEntity.ok().body(test);
+    }
+
+    @PostMapping()
+    public ResponseEntity createGPU(@RequestBody Powersupply p){
+        logic.AddBasicProduct(p);
+        inv.save(new PInventory(p,10));
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+}

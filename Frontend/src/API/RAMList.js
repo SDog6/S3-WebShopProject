@@ -1,6 +1,7 @@
 import React,{Component} from "react";
 import axios from "axios";
 import Card from "../Cards/Card";
+import RAMCard from "../Cards/RAMCard";
 
 
 class RAMList extends Component{
@@ -35,7 +36,7 @@ class RAMList extends Component{
             <div>
                 <h1>RAM</h1>
                 {
-                    products.map(product =>  <div className = 'wrapper'> <Card title = {product.name} price = {product.price} brand = {product.brand} warranty = {product.warranty}/> </div>)
+                    products.map(product => <div className = 'wrapper'><RAMCard  img = {product.url} title = {product.name} price = {product.price} brand = {product.brand} warranty = {product.warranty} id = {product.id}/> </div> )
                 }
             </div>
         )

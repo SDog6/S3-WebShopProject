@@ -1,21 +1,15 @@
 package project.repositoryInterfaces;
 
-import project.Models.product_class.CPU;
-import project.Models.product_class.GPU;
 import project.Models.product_class.parent_class.BasicProduct;
 
 import java.util.List;
 
 public interface IBasicProductRepo {
+    public BasicProduct getBasicProductByName(String name);
 
-    public boolean AddCPU(CPU product);
-    public boolean RemoveCPU(CPU product);
+    public boolean AddBasicProduct(BasicProduct product);
 
-    public CPU GetSingleCPU(String Name);
-    public boolean AddGPU(GPU product);
-    public boolean RemoveGPU(GPU product);
-
-    public GPU GetSingleGPU(String Name);
+    public boolean RemoveBasicProduct(BasicProduct product);
 
     List<BasicProduct> getAll();
 

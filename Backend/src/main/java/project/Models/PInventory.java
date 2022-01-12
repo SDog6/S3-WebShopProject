@@ -14,7 +14,7 @@ public class PInventory {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @OneToOne
-    @JoinColumn(name = "basic_id", nullable = false)
+    @JoinColumn(name = "id", nullable = false)
     private BasicProduct product;
     @Column(name = "amount")
     private int amount;

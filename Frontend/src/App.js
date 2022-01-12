@@ -14,6 +14,7 @@ import Logout from "./Components/Logout";
 import Payment from "./Pages/Payment";
 import Inventory from "./Pages/Inventory";
 import Account from "./Pages/Account";
+import CreateGPUPage from "./ProductCreationPage/CreateGPUPage";
 
 function App() {
   return (
@@ -27,7 +28,15 @@ function App() {
           <Route path="/login" exact component={Login} />
           <Route path="/logout" exact component={Logout} />
           <Route path="/CPU/:name" exact component={CPUSearch} />
+          <Route path="/GPU/:name" exact component={} />
+          <Route path="/CPUCooling/:name" exact component={CPUSearch} />
+          <Route path="/Motherboard/:name" exact component={CPUSearch} />
+          <Route path="/Powersupply/:name" exact component={CPUSearch} />
+          <Route path="/RAM/:name" exact component={CPUSearch} />
+          <Route path="/Storage/:name" exact component={CPUSearch} />
+
           <Route path="/CPUCreation" exact component={CreateCPUPage} />
+          <Route path="/GPUCreation" exact component={CreateGPUPage} />
           <Route path="/Cart" exact component={Cart} />
           <Route path="/payment" exact component={Payment} />
           <Route path="/Inventory" exact component={Inventory} />

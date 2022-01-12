@@ -7,7 +7,7 @@ import { DataContext } from "../Components/Cart/Context";
 import { Button, Table } from "react-bootstrap";
 
 
-export class CPUSearch extends Component {
+export class GPUSearch extends Component {
 
    static contextType = DataContext;
 
@@ -95,4 +95,5 @@ export class CPUSearch extends Component {
 
 }
 
-export default CPUSearch;
+export default Gtt
+PUSearch;

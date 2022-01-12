@@ -52,7 +52,7 @@ class Inventory extends Component {
         <Button className = "InventoryButton" variant="primary" href={"/"}>
           Create new CPU Cooling
         </Button>
-        <Button className = "InventoryButton" variant="primary" href={"/"}>
+        <Button className = "InventoryButton" variant="primary" href={"/GPUCreation"}>
         Create new GPU
         </Button>
         <Button className = "InventoryButton" variant="primary" href={"/"}>

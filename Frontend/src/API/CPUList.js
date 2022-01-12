@@ -5,16 +5,36 @@ import { DataContext } from "../Components/Cart/Context";
 
 class CPUList extends Component{
     
-    static contextType = DataContext;
+        
+    constructor(props) {
+        super(props)
     
+        this.state = { 
+             products : []
+        }
+    }
+
+
+    
+    
+    
+    componentDidMount() { 
+        axios.get('http://localhost:8080/Storage')
+        .then(response =>{
+            this.setState({
+                products: response.data
+                
+            })
+            console.log(response.data)
+        })
+    }
 
     render() { 
-        const {addCart,products} = this.context;
         return(
             <div>
                 <h1>Products</h1>
                 {
-                    products.map(product => <div className = 'wrapper'><Card  img = {product.url} title = {product.name} price = {product.price} brand = {product.brand} warranty = {product.warranty} id = {product.id}/> </div> )
+                    this.state.products.map(product => <div className = 'wrapper'><Card  img = {product.url} title = {product.name} price = {product.price} brand = {product.brand} warranty = {product.warranty} id = {product.id}/> </div> )
                 }
             </div>
         )

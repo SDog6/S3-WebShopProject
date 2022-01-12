@@ -6,17 +6,7 @@ import Axios from "axios";
 const { Title } = Typography;
 const { TextArea } = Input;
 
-const Products = [
-  { key: 1, value: "CPU" },
-  { key: 2, value: "CPU Cooling" },
-  { key: 3, value: "GPU" },
-  { key: 4, value: "Motherboard" },
-  { key: 5, value: "Power supply" },
-  { key: 6, value: "RAM" },
-  { key: 7, value: "Storage" },
-];
-
-function CreateCPUPage(props) {
+function CreateGPUPage(props) {
   const [TitleValue, setTitleValue] = useState("");
   const [BrandValue, setBrandValue] = useState("");
   const [PriceValue, setPriceValue] = useState(0);
@@ -24,10 +14,13 @@ function CreateCPUPage(props) {
   const [URLValue, setURLValue] = useState("");
   const [ClockSpeedValue, setClockSpeedValue] = useState(0);
   const [PowerConsumValue, setPowerConsumValue] = useState(0);
-  const [SocketValue, setSocketValue] = useState("");
-  const [CoresValue, setCoresValue] = useState(0);
-  const [ThreadsValue, setThreadsValue] = useState(0);
-  const [ProductValue, setProductValue] = useState(1);
+  const [Vram, setVramValue] = useState("");
+  const [lenghtValue, setlenghtValue] = useState(0);
+  const [WidthsValue, setWidthsValue] = useState(0);
+  const [HeightValue, setHeightValue] = useState(1);
+  const [HDMIProtsValue, setHDMIPortsValue] = useState(1);
+  const [DisplayPortsValue, setDisplayPortsValue] = useState(1);
+  const [FansValue, setFansValue] = useState(1);
 
 
   const onTitleChange = (event) => {
@@ -54,47 +47,53 @@ function CreateCPUPage(props) {
     setClockSpeedValue(event.currentTarget.value);
   };
 
-  const onPowerConsumChange = (event) => {
-    setPowerConsumValue(event.currentTarget.value);
+  const onVramChange = (event) => {
+    setVramValue(event.currentTarget.value);
   };
 
-  const onSocketChange = (event) => {
-    setSocketValue(event.currentTarget.value);
+  const onLenghtChange = (event) => {
+    setlenghtValue(event.currentTarget.value);
   };
 
-  const onCoresChange = (event) => {
-    setCoresValue(event.currentTarget.value);
+  const onWidthChange = (event) => {
+    setWidthsValue(event.currentTarget.value);
   };
 
-  const onThreadsChange = (event) => {
-    setThreadsValue(event.currentTarget.value);
+  const onHeightChange = (event) => {
+    setHeightValue(event.currentTarget.value);
   };
 
-  const onProductsSelectChange = (event) => {
-    setProductValue(event.currentTarget.value);
+  const onHDMIChange = (event) => {
+    setHDMIPortsValue(event.currentTarget.value);
+  };
+    const onDisplayChange = (event) => {
+    setDisplayPortsValue(event.currentTarget.value);
+  }; 
+   const onFansChange = (event) => {
+    setFansValue(event.currentTarget.value);
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
 
-    if (!TitleValue || !BrandValue || !PriceValue || !WarrantyValue || !URLValue || !ProductValue) {
-      return alert("fill all the fields first!");
-    }
-
-    let cpu = {
+    let gpu = {
       name: TitleValue,
       brand: BrandValue,
       price: PriceValue,
       warranty: WarrantyValue,
       url: URLValue,
       clockspeed: ClockSpeedValue,
-      powerconsum : PowerConsumValue,
-      socket: SocketValue,
-      cores: CoresValue,
-      threads : ThreadsValue,
+      vram : Vram,
+      lenght: lenghtValue,
+      width: WidthsValue,
+      height : HeightValue,
+      hdmiports : HDMIProtsValue,
+      displayports : DisplayPortsValue,
+      fans : FansValue
+
     };
 
-    Axios.post('http://localhost:8080/CPU', cpu).then((response) => {
+    Axios.post('http://localhost:8080/GPU', gpu).then((response) => {
         console.log(response.data)
           alert("Product Successfully Uploaded");
       });
@@ -103,7 +102,7 @@ function CreateCPUPage(props) {
   return (
     <div style={{ maxWidth: "700px", margin: "2rem auto" }}>
       <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-        <Title level={2}>Please specify the details of the CPU you want to create</Title>
+        <Title level={2}>Please specify the details of the GPU you want to create</Title>
       </div>
       <Form onSubmit={onSubmit}>
         <br />
@@ -132,28 +131,38 @@ function CreateCPUPage(props) {
         <Input onChange={onClockSpeedChange} value={ClockSpeedValue} type="number" />
         <br />
         <br />
-        <label>Power consumtion</label>
-        <Input onChange={onPowerConsumChange} value={PowerConsumValue} type="number" />
+        <label>VRAM</label>
+        <Input onChange={onVramChange} value={Vram} type="number" />
         <br />
         <br />
-        <label>Socket</label>
-        <Input onChange={onSocketChange} value={SocketValue} />
+        <label>Lenght</label>
+        <Input onChange={onLenghtChange} value={lenghtValue} />
         <br />
         <br />
-        <label>Cores</label>
-        <Input onChange={onCoresChange} value={CoresValue} type="number" />
+        <label>Width</label>
+        <Input onChange={onWidthChange} value={WidthsValue} type="number" />
         <br />
         <br />
-        <label>Threads</label>
-        <Input onChange={onThreadsChange} value={ThreadsValue} type="number" />
+        <label>Height</label>
+        <Input onChange={onHeightChange} value={HeightValue} type="number" />
         <br />
         <br />
-
-
-        <Button onClick={onSubmit}>Save CPU</Button>
+        <label>HDMI Prots</label>
+        <Input onChange={onHeightChange} value={HDMIProtsValue} type="number" />
+        <br />
+        <br />
+        <label>Display ports</label>
+        <Input onChange={onDisplayChange} value={DisplayPortsValue} type="number" />
+        <br />
+        <br />
+        <label>Fans</label>
+        <Input onChange={onFansChange} value={FansValue} type="number" />
+        <br />
+        <br />
+        <Button onClick={onSubmit}>Save GPU</Button>
       </Form>
     </div>
   );
 }
 
-export default CreateCPUPage;
+export default CreateGPUPage;

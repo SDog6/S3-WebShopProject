@@ -1,38 +1,38 @@
-//package project.controller;
-//
-//import project.DTO.product_class.RAM;
-//import org.springframework.http.ResponseEntity;
-//import org.springframework.web.bind.annotation.CrossOrigin;
-//import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RestController;
-//import project.fakedatabase.FakeRAMData;
-//import project.service.RAMManager;
-//
-//import java.util.List;
-//
-//@CrossOrigin(origins = "http://localhost:3000")
-//@RestController
-//@RequestMapping("/RAM")
-//public class RamController {
-//
-//    private FakeRAMData fake = new FakeRAMData();
-//    private RAMManager data = new RAMManager(fake);
-//
-//
-//    @GetMapping
-//    public ResponseEntity<List<RAM>> getAllRAM(){
-//        List<RAM> test = null;
-//
-//        test = data.GetAllRAMs();
-//
-//        if(test != null){
-//            return ResponseEntity.ok().body(test);
-//        }
-//        else {
-//            return ResponseEntity.notFound().build();
-//
-//        }
-//    }
-//
-//}
+package project.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import project.DBAccessInterfaces.IInventoryRepo;
+import project.Models.PInventory;
+import project.Models.product_class.GPU;
+import project.serviceInterfaces.IBasicProductService;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/RAM")
+public class RamController {
+
+    @Autowired
+    IBasicProductService logic;
+
+    @Autowired
+    IInventoryRepo inv;
+
+    @GetMapping
+    public ResponseEntity<List<RAM>> getAllRAMs(){
+        List<RAM> test = null;
+        test = logic.getAllRAM();
+        return ResponseEntity.ok().body(test);
+    }
+
+    @PostMapping()
+    public ResponseEntity createRAM(@RequestBody RAM r){
+        logic.AddBasicProduct(r);
+        inv.save(new PInventory(r,10));
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+}

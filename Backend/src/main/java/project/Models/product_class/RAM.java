@@ -1,7 +1,15 @@
 package project.Models.product_class;
 
+import lombok.NoArgsConstructor;
 import project.Models.product_class.parent_class.BasicProduct;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "ram")
+@NoArgsConstructor
 public class RAM extends BasicProduct {
 
     int amount;
@@ -13,13 +21,19 @@ public class RAM extends BasicProduct {
         this.voltage = voltage;
     }
 
-
-
     public int getAmount() {
         return amount;
     }
 
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
     public int getVoltage() {
         return voltage;
+    }
+
+    public void setVoltage(int voltage) {
+        this.voltage = voltage;
     }
 }

@@ -11,7 +11,6 @@ import project.serviceInterfaces.IBasicProductService;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/CPU")
 public class CPUController {
@@ -29,19 +28,9 @@ test = logic.getAllCPU();
     return ResponseEntity.ok().body(test);
 }
 
-@GetMapping("/Name/{name}")
-public ResponseEntity<CPU> getCPUByName(@PathVariable(value = "name") String name) {
-    CPU cpu = logic.GetSingleCPU(name);
-    if (cpu != null) {
-        return ResponseEntity.ok().body(cpu);
-    } else {
-        return ResponseEntity.notFound().build();
-    }
-}
-
 @PostMapping()
     public ResponseEntity createCPU(@RequestBody CPU cpu){
-     logic.AddCPU(cpu);
+     logic.AddBasicProduct(cpu);
      inv.save(new PInventory(cpu,10));
     return new ResponseEntity(HttpStatus.OK);
 }
