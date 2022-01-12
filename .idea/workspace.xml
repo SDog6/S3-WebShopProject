@@ -4,7 +4,54 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b25f4da9-f0be-4ae1-ad25-47171c3ccb03" name="Changes" comment="" />
+    <list default="true" id="b25f4da9-f0be-4ae1-ad25-47171c3ccb03" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/project/repository/BasicProductRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/project/repositoryInterfaces/IBasicProductRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/project/service/BasicProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/project/serviceInterfaces/IBasicProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/.gradle/7.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/.gradle/7.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/.gradle/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/build/classes/java/test/ProductTests/CPUCoolingTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/build/classes/java/test/ProductTests/CPUTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/build/classes/java/test/ProductTests/GPUTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/build/classes/java/test/ProductTests/MotherboardTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/build/classes/java/test/ProductTests/PowersupplyTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/build/classes/java/test/ProductTests/RAMTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/build/classes/java/test/ProductTests/StorageTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/DBAccessInterfaces/productAccess/IBasicProductRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/project/DBAccessInterfaces/productAccess/IBasicProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/DBAccessInterfaces/productAccess/ICPURepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/project/DBAccessInterfaces/productAccess/ICPU.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/controller/BasicProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/project/controller/BasicProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/controller/CPUController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/project/controller/CPUController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/controller/GPUController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/project/controller/GPUController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/fakedatabase/FakeCPUData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/project/fakedatabase/FakeCPUData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/fakedatabase/FakeGPUData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/project/fakedatabase/FakeGPUData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/repository/CPURepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/repository/GPURepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/repository/Storage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/repositoryInterfaces/ICPUData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/repositoryInterfaces/IGPUData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/service/CPUCoolingManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/service/CPUManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/service/GPUManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/service/MotherboardManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/service/PowersupplyManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/service/RAMManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/service/StorageManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/serviceInterfaces/ICPUService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/project/serviceInterfaces/IGPUService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/test/java/ProductTests/CPUTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/test/java/ProductTests/CPUTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,17 +123,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../GitStuff/crossyn_project/Backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Backend" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_interpreter_path" value="$APPLICATION_CONFIG_DIR$/node/node-v14.15.0-win-x64/node" />
+    <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.44790047" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -163,6 +210,8 @@
       <workItem from="1633504068865" duration="649000" />
       <workItem from="1633607142925" duration="5558000" />
       <workItem from="1633614254474" duration="36000" />
+      <workItem from="1641897692713" duration="166000" />
+      <workItem from="1641973730204" duration="607000" />
     </task>
     <servers />
   </component>
