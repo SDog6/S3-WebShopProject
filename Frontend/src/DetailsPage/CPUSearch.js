@@ -33,7 +33,6 @@ export class CPUSearch extends Component {
     
   return (
     <>
-      {/* <div className="postPage" style={{ width: "100%", padding: "3rem 4rem" }}> */}
       <Card className="productPage">
         <Card.Img src={this.state.Product.url}></Card.Img>
         <div className="card-options">
@@ -89,7 +88,6 @@ export class CPUSearch extends Component {
           </Card.Body>
         </div>
       </Card>
-      {/* </div> */}
     </>
   );
 

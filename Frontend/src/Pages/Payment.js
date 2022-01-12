@@ -32,6 +32,8 @@ class Payment extends Component {
         localStorage.removeItem("dataCart")
         localStorage.removeItem("dataTotal")
         alert("Order created");
+      }, (error) => {
+        alert("We do not have enough of that item in stock right now !");
       });
   };
 
