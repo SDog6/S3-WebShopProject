@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import project.DBAccessInterfaces.productAccess.IBasicProductRepo;
+import project.DBAccessInterfaces.productAccess.IBasicProduct;
 import project.Models.product_class.CPU;
 import project.Models.product_class.GPU;
 import project.Models.product_class.parent_class.BasicProduct;
@@ -19,7 +19,7 @@ import java.util.List;
 public class BasicProductController {
 
     @Autowired
-    IBasicProductRepo logic;
+    IBasicProduct logic;
 
     @GetMapping
     public ResponseEntity<List<BasicProduct>> getAllBasicProducts(){

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import project.DBAccessInterfaces.IInventoryRepo;
 import project.Models.PInventory;
 import project.Models.product_class.CPU;
-import project.serviceInterfaces.ICPUService;
+import project.serviceInterfaces.IBasicProductService;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ import java.util.List;
 public class CPUController {
 
     @Autowired
-    ICPUService logic;
+    IBasicProductService logic;
     @Autowired
     IInventoryRepo inv;
 
@@ -25,13 +25,13 @@ public class CPUController {
 public ResponseEntity<List<CPU>> getAllCPUs(){
 List <CPU> test = null;
 
-test = logic.GetAllCPUs();
+test = logic.getAllCPU();
     return ResponseEntity.ok().body(test);
 }
 
 @GetMapping("/Name/{name}")
 public ResponseEntity<CPU> getCPUByName(@PathVariable(value = "name") String name) {
-    CPU cpu = logic.GetCPUByName(name);
+    CPU cpu = logic.GetSingleCPU(name);
     if (cpu != null) {
         return ResponseEntity.ok().body(cpu);
     } else {
