@@ -27,8 +27,8 @@ export const UserSidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'About',
-    path: '/about',
+    title: 'Chat',
+    path: '/Chat',
     icon: <IoIcons.IoMdHelpCircle />,
     cName: 'nav-text'
   }

@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import project.DBAccessInterfaces.IInventoryRepo;
 import project.Models.PInventory;
-import project.Models.product_class.GPU;
+import project.Models.product_class.RAM;
 import project.serviceInterfaces.IBasicProductService;
 
 import java.util.List;
