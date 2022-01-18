@@ -56,9 +56,6 @@ export class CPUSearch extends Component {
             <td colspan="1"> Warranty: {this.state.Product.warranty} years</td>
           </tr>
           <tr>
-            <td colspan="1"> Brand: {this.state.Product.brand}</td>
-          </tr>
-          <tr>
             <td colspan="1"> Clock speed: {this.state.Product.clockspeed} Hz</td>
           </tr>
           <tr>

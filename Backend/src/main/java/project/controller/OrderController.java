@@ -8,6 +8,7 @@ import project.DBAccessInterfaces.IInventoryRepo;
 import project.DBAccessInterfaces.IOrder;
 import project.Models.Order;
 import project.Models.PInventory;
+import project.Models.ProductCounter;
 import project.Models.product_class.parent_class.BasicProduct;
 
 import java.util.ArrayList;
@@ -42,17 +43,23 @@ public class OrderController {
     @PostMapping()
     public ResponseEntity CreateOrder(@RequestBody Order temp){
         List<BasicProduct> orderedItems = new ArrayList<>();
+        List<ProductCounter> ItemNrs = new ArrayList<>();
+
         for (BasicProduct product:temp.getProducts()) {
            PInventory check =  inventory.getByProduct_Id(product.getId());
-           if (check.getAmount() >= product.getCount()){
+
+           if (check.getAmount() < product.getCount() && check.getAmount() >= 1){
+               product.setCount(check.getAmount());
+           }
+           if (check.getAmount() >= product.getCount() && check.getAmount() >= 1 ){
                int newamount = check.getAmount() - product.getCount();
                check.setAmount(newamount);
                inventory.save(check);
-               orderedItems.add(product);
+               ItemNrs.add(new ProductCounter(product,product.getCount()));
            }
         }
         if (orderedItems.size()>0){
-            logic.save(new Order(orderedItems,temp.getUsername(),temp.getPrice()));
+            logic.save(new Order(ItemNrs,temp.getUsername(),temp.getPrice()));
             return new ResponseEntity(HttpStatus.OK);
         }
         return new ResponseEntity(HttpStatus.CONFLICT);

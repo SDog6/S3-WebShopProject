@@ -95,7 +95,7 @@ function CreateGPUPage(props) {
 
     Axios.post('http://localhost:8080/GPU', gpu).then((response) => {
         console.log(response.data)
-          alert("Product Successfully Uploaded");
+        alert("Product Successfully Uploaded");
       });
   };
 
@@ -136,7 +136,7 @@ function CreateGPUPage(props) {
         <br />
         <br />
         <label>Lenght</label>
-        <Input onChange={onLenghtChange} value={lenghtValue} />
+        <Input onChange={onLenghtChange} value={lenghtValue} type="number"/>
         <br />
         <br />
         <label>Width</label>
@@ -148,7 +148,7 @@ function CreateGPUPage(props) {
         <br />
         <br />
         <label>HDMI Prots</label>
-        <Input onChange={onHeightChange} value={HDMIProtsValue} type="number" />
+        <Input onChange={onHDMIChange} value={HDMIProtsValue} type="number" />
         <br />
         <br />
         <label>Display ports</label>

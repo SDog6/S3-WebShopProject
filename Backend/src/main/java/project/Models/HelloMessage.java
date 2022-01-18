@@ -9,10 +9,6 @@ public class HelloMessage {
     public HelloMessage() {
     }
 
-    public HelloMessage(String name) {
-        this.name = name;
-    }
-
     public HelloMessage(String name, String username) {
         this.name = name;
         this.username = username;

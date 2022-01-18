@@ -13,13 +13,10 @@ class CPUList extends Component{
              products : []
         }
     }
-
-
-    
     
     
     componentDidMount() { 
-        axios.get('http://localhost:8080/Storage')
+        axios.get('http://localhost:8080/CPU')
         .then(response =>{
             this.setState({
                 products: response.data
@@ -32,7 +29,7 @@ class CPUList extends Component{
     render() { 
         return(
             <div>
-                <h1>Products</h1>
+                <h1>CPUs</h1>
                 {
                     this.state.products.map(product => <div className = 'wrapper'><Card  img = {product.url} title = {product.name} price = {product.price} brand = {product.brand} warranty = {product.warranty} id = {product.id}/> </div> )
                 }

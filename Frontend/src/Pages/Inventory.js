@@ -49,22 +49,22 @@ class Inventory extends Component {
         <Button className = "InventoryButton" variant="primary" href={"/CPUCreation"}>
           Create new CPU
         </Button>
-        <Button className = "InventoryButton" variant="primary" href={"/"}>
+        <Button className = "InventoryButton" variant="primary" href={"/CPUCoolingCreation"}>
           Create new CPU Cooling
         </Button>
         <Button className = "InventoryButton" variant="primary" href={"/GPUCreation"}>
         Create new GPU
         </Button>
-        <Button className = "InventoryButton" variant="primary" href={"/"}>
+        <Button className = "InventoryButton" variant="primary" href={"/MotherboardCreation"}>
           Create new MotherBoard
         </Button>
-        <Button className = "InventoryButton" variant="primary" href={"/" }>
+        <Button className = "InventoryButton" variant="primary" href={"/PowerSupplyCreation" }>
         Create new Powersupply
         </Button>
-        <Button className = "InventoryButton" variant="primary" href={"/"}>
+        <Button className = "InventoryButton" variant="primary" href={"/RAMCreation"}>
         Create new RAM
         </Button>
-        <Button className = "InventoryButton" variant="primary" href={"/"}>
+        <Button className = "InventoryButton" variant="primary" href={"/StorageCreation"}>
         Create new Storage
         </Button>
      

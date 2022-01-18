@@ -6,15 +6,6 @@ import Axios from "axios";
 const { Title } = Typography;
 const { TextArea } = Input;
 
-const Products = [
-  { key: 1, value: "CPU" },
-  { key: 2, value: "CPU Cooling" },
-  { key: 3, value: "GPU" },
-  { key: 4, value: "Motherboard" },
-  { key: 5, value: "Power supply" },
-  { key: 6, value: "RAM" },
-  { key: 7, value: "Storage" },
-];
 
 function CreateCPUPage(props) {
   const [TitleValue, setTitleValue] = useState("");
@@ -27,8 +18,6 @@ function CreateCPUPage(props) {
   const [SocketValue, setSocketValue] = useState("");
   const [CoresValue, setCoresValue] = useState(0);
   const [ThreadsValue, setThreadsValue] = useState(0);
-  const [ProductValue, setProductValue] = useState(1);
-
 
   const onTitleChange = (event) => {
     setTitleValue(event.currentTarget.value);
@@ -70,14 +59,10 @@ function CreateCPUPage(props) {
     setThreadsValue(event.currentTarget.value);
   };
 
-  const onProductsSelectChange = (event) => {
-    setProductValue(event.currentTarget.value);
-  };
-
   const onSubmit = (event) => {
     event.preventDefault();
 
-    if (!TitleValue || !BrandValue || !PriceValue || !WarrantyValue || !URLValue || !ProductValue) {
+    if (!TitleValue || !BrandValue || !PriceValue || !WarrantyValue || !URLValue) {
       return alert("fill all the fields first!");
     }
 

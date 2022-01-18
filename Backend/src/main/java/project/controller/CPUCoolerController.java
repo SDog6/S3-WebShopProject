@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import project.DBAccessInterfaces.IInventoryRepo;
 import project.Models.PInventory;
-import project.Models.product_class.GPU;
+import project.Models.product_class.CPUCooling;
 import project.serviceInterfaces.IBasicProductService;
 
 import java.util.List;
@@ -24,16 +24,16 @@ public class CPUCoolerController {
     IInventoryRepo inv;
 
     @GetMapping
-    public ResponseEntity<List<GPU>> getAllGPUs(){
-        List<GPU> test = null;
-        test = logic.getAllGPU();
+    public ResponseEntity<List<CPUCooling>> getAllCoolerss(){
+        List<CPUCooling> test = null;
+        test = logic.getAllGPUCooling();
         return ResponseEntity.ok().body(test);
     }
 
     @PostMapping()
-    public ResponseEntity createGPU(@RequestBody GPU gpu){
-        logic.AddBasicProduct(gpu);
-        inv.save(new PInventory(gpu,10));
+    public ResponseEntity createCooler(@RequestBody CPUCooling cooling){
+        logic.AddBasicProduct(cooling);
+        inv.save(new PInventory(cooling,10));
         return new ResponseEntity(HttpStatus.OK);
     }
 
