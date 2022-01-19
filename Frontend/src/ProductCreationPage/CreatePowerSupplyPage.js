@@ -13,6 +13,8 @@ function CreatePowerSupplyPage(props) {
   const [WarrantyValue, setWarrantValue] = useState(0);
   const [URLValue, setURLValue] = useState("");
   const [Capacity, setCapacity] = useState(0);
+  const [Message, SetMessage] = useState("");
+
 
  
 
@@ -38,6 +40,10 @@ function CreatePowerSupplyPage(props) {
 
   const onSubmit = (event) => {
     event.preventDefault();
+    if (!TitleValue || !BrandValue || !PriceValue || !WarrantyValue || !URLValue || !Capacity ) {
+      SetMessage("Fill all the fields first!");
+    }
+    else {
 
     let power = {
       name: TitleValue,
@@ -49,10 +55,15 @@ function CreatePowerSupplyPage(props) {
 
     };
 
-    Axios.post('http://localhost:8080/PowerSupply', power).then((response) => {
+    Axios.post('http://localhost:8080/PowerSupply', power, 
+    {headers: {"Authorization" : `${localStorage.getItem("token")}`}}).then((response) => {
         console.log(response.data)
-        alert("Product Successfully Uploaded");
-      });
+        SetMessage("Product created!");
+      },
+      (error) => {
+          console.log(error);
+          SetMessage("Please check your fields!");
+        });}
   };
 
   return (
@@ -88,6 +99,8 @@ function CreatePowerSupplyPage(props) {
         <br />
         <br />
         <Button onClick={onSubmit}>Save Power Supply</Button>
+        { <p className="m"> { Message } </p> }
+
       </Form>
     </div>
   );

@@ -20,15 +20,16 @@ public class UserService {
     public User readUserByUsername (String username) {
         return userRepository.getUserByUsername(username).orElseThrow(EntityNotFoundException::new);
     }
-    public void createUser(UserCreateRequest userCreateRequest) {
+    public boolean createUser(UserCreateRequest userCreateRequest) {
         User user = new User();
         Optional<User> byUsername = userRepository.getUserByUsername(userCreateRequest.getUsername());
         if (byUsername.isPresent()) {
-            throw new RuntimeException("User already registered. Please use different username.");
+            return false;
         }
         user.setUsername(userCreateRequest.getUsername());
         user.setPassword(passwordEncoder.encode(userCreateRequest.getPassword()));
         user.setRole(userCreateRequest.getRole());
         userRepository.save(user);
+        return true;
     }
 }

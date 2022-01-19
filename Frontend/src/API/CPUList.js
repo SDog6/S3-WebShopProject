@@ -16,7 +16,8 @@ class CPUList extends Component{
     
     
     componentDidMount() { 
-        axios.get('http://localhost:8080/CPU')
+        axios.get('http://localhost:8080/CPU', 
+        {headers: {"Authorization" : `${localStorage.getItem("token")}`}})
         .then(response =>{
             this.setState({
                 products: response.data

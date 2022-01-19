@@ -30,9 +30,14 @@ public class PowersupplyController {
 
     @PostMapping()
     public ResponseEntity createGPU(@RequestBody Powersupply p){
-        logic.AddBasicProduct(p);
-        inv.save(new PInventory(p,10));
-        return new ResponseEntity(HttpStatus.OK);
+        try{
+            logic.AddBasicProduct(p);
+            inv.save(new PInventory(p,10));
+            return new ResponseEntity(HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity(HttpStatus.CONFLICT);
+        }
     }
 
 }

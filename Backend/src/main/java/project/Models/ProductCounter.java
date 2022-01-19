@@ -15,7 +15,6 @@ public class ProductCounter {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @ManyToOne
-    @Column(name = "product")
     BasicProduct product;
     @Column(name = "amount")
     private int amount;

@@ -20,7 +20,8 @@ class MotherboardList extends Component{
     
     
     componentDidMount() { 
-        axios.get('http://localhost:8080/Motherboard')
+        axios.get('http://localhost:8080/Motherboard', 
+        {headers: {"Authorization" : `${localStorage.getItem("token")}`}})
         .then(response =>{
             this.setState({
                 products: response.data

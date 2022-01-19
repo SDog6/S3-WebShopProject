@@ -4,14 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import project.DBAccessInterfaces.IInventoryRepo;
-import project.DBAccessInterfaces.IOrder;
 import project.Models.Order;
-import project.Models.PInventory;
-import project.Models.ProductCounter;
-import project.Models.product_class.parent_class.BasicProduct;
+import project.serviceInterfaces.IOrderService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -19,16 +14,14 @@ import java.util.List;
 @RequestMapping("/Order")
 public class OrderController {
     @Autowired
-    IOrder logic;
+    IOrderService logic;
 
-    @Autowired
-    IInventoryRepo inventory;
 
 
     @GetMapping
     public ResponseEntity<List<Order>> GetOrders(){
         List <Order> test = null;
-        test = logic.findAll();
+        test = logic.getAllOrders();
         return ResponseEntity.ok().body(test);
     }
 
@@ -36,32 +29,14 @@ public class OrderController {
     public ResponseEntity<List<Order>> GetOrdersByUsername(@RequestBody String username){
         List <Order> test = null;
         test = logic.getOrdersByUsername(username);
-
         return ResponseEntity.ok().body(test);
     }
 
     @PostMapping()
     public ResponseEntity CreateOrder(@RequestBody Order temp){
-        List<BasicProduct> orderedItems = new ArrayList<>();
-        List<ProductCounter> ItemNrs = new ArrayList<>();
-
-        for (BasicProduct product:temp.getProducts()) {
-           PInventory check =  inventory.getByProduct_Id(product.getId());
-
-           if (check.getAmount() < product.getCount() && check.getAmount() >= 1){
-               product.setCount(check.getAmount());
-           }
-           if (check.getAmount() >= product.getCount() && check.getAmount() >= 1 ){
-               int newamount = check.getAmount() - product.getCount();
-               check.setAmount(newamount);
-               inventory.save(check);
-               ItemNrs.add(new ProductCounter(product,product.getCount()));
-           }
-        }
-        if (orderedItems.size()>0){
-            logic.save(new Order(ItemNrs,temp.getUsername(),temp.getPrice()));
-            return new ResponseEntity(HttpStatus.OK);
-        }
-        return new ResponseEntity(HttpStatus.CONFLICT);
+       if (logic.CreateOrder(temp)){
+           return ResponseEntity.ok(HttpStatus.OK);
+       }
+        return ResponseEntity.ok(HttpStatus.BAD_REQUEST);
     }
 }

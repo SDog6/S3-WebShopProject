@@ -20,7 +20,8 @@ class PowerSupplyList extends Component{
     
     
     componentDidMount() { 
-        axios.get('http://localhost:8080/PowerSupply')
+        axios.get('http://localhost:8080/PowerSupply', 
+        {headers: {"Authorization" : `${localStorage.getItem("token")}`}})
         .then(response =>{
             this.setState({
                 products: response.data

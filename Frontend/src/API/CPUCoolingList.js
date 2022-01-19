@@ -12,7 +12,8 @@ class CPUCoolingList extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:8080/CPUCooler").then((response) => {
+    axios.get("http://localhost:8080/CPUCooler", 
+    {headers: {"Authorization" : `${localStorage.getItem("token")}`}}).then((response) => {
       this.setState({
         products: response.data,
       });

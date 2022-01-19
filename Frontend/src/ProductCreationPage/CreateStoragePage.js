@@ -15,6 +15,7 @@ function CreateStoragePage(props) {
   const [Type, setType] = useState("");
   const [Amount, setAmount] = useState(0);
   const [WriteSpeed, setWriteSpeed] = useState(0);
+  const [Message, SetMessage] = useState("");
 
 
 
@@ -40,7 +41,10 @@ function CreateStoragePage(props) {
 
   const onSubmit = (event) => {
     event.preventDefault();
-
+    if (!TitleValue || !BrandValue || !PriceValue || !WarrantyValue || !URLValue || !Type || !Amount || !WriteSpeed ) {
+      SetMessage("Fill all the fields first!");
+    }
+    else {
     let storage = {
       name: TitleValue,
       brand: BrandValue,
@@ -53,10 +57,15 @@ function CreateStoragePage(props) {
 
     };
 
-    Axios.post('http://localhost:8080/Storage', storage).then((response) => {
+    Axios.post('http://localhost:8080/Storage', storage, 
+    {headers: {"Authorization" : `${localStorage.getItem("token")}`}}).then((response) => {
         console.log(response.data)
-        alert("Product Successfully Uploaded");
+        SetMessage("Product created!");
+      },
+      (error) => {
+        SetMessage("Please check your fields!");
       });
+    }
   };
 
   return (
@@ -99,6 +108,7 @@ function CreateStoragePage(props) {
         <br />
         
         <Button onClick={onSubmit}>Save Storage</Button>
+        { <p className="m"> { Message } </p> }
       </Form>
     </div>
   );

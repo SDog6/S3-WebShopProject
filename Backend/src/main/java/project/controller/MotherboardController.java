@@ -30,9 +30,14 @@ public class MotherboardController {
 
     @PostMapping()
     public ResponseEntity createGPU(@RequestBody Motherboard m){
-        logic.AddBasicProduct(m);
-        inv.save(new PInventory(m,10));
-        return new ResponseEntity(HttpStatus.OK);
+        try{
+            logic.AddBasicProduct(m);
+            inv.save(new PInventory(m,10));
+            return new ResponseEntity(HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity(HttpStatus.CONFLICT);
+        }
     }
 
 }

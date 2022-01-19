@@ -19,7 +19,8 @@ class StorageList extends Component{
     
     
     componentDidMount() { 
-        axios.get('http://localhost:8080/Storage')
+        axios.get('http://localhost:8080/Storage', 
+        {headers: {"Authorization" : `${localStorage.getItem("token")}`}})
         .then(response =>{
             this.setState({
                 products: response.data

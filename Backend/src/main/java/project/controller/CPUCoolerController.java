@@ -32,10 +32,13 @@ public class CPUCoolerController {
 
     @PostMapping()
     public ResponseEntity createCooler(@RequestBody CPUCooling cooling){
-        logic.AddBasicProduct(cooling);
-        inv.save(new PInventory(cooling,10));
-        return new ResponseEntity(HttpStatus.OK);
+        try{
+            logic.AddBasicProduct(cooling);
+            inv.save(new PInventory(cooling,10));
+            return new ResponseEntity(HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity(HttpStatus.CONFLICT);
+        }
     }
-
-
 }

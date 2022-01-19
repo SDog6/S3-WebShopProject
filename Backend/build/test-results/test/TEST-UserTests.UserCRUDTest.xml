@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="UserTests.UserCRUDTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-19T11:25:13" hostname="DESKTOP-R5BS0TJ" time="0.003">
+  <properties/>
+  <testcase name="CreateTest()" classname="UserTests.UserCRUDTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

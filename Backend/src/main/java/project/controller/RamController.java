@@ -30,9 +30,14 @@ public class RamController {
 
     @PostMapping()
     public ResponseEntity createRAM(@RequestBody RAM r){
-        logic.AddBasicProduct(r);
-        inv.save(new PInventory(r,10));
-        return new ResponseEntity(HttpStatus.OK);
+        try{
+            logic.AddBasicProduct(r);
+            inv.save(new PInventory(r,10));
+            return new ResponseEntity(HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity(HttpStatus.CONFLICT);
+        }
     }
 
 }

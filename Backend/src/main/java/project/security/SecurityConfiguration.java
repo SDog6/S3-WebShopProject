@@ -23,7 +23,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, AuthenticationConfigConstants.SIGN_UP_URL).permitAll()
-                .antMatchers(HttpMethod.POST,"/login").permitAll()
+                .antMatchers(HttpMethod.POST,"/CPU").hasAnyAuthority("ADMIN")
+                .antMatchers(HttpMethod.POST,"/CPUCooler").hasAnyAuthority("ADMIN")
+                .antMatchers(HttpMethod.POST,"/GPU").hasAnyAuthority("ADMIN")
+                .antMatchers(HttpMethod.POST,"/Motherboard").hasAnyAuthority("ADMIN")
+                .antMatchers(HttpMethod.POST,"/PowerSupply").hasAnyAuthority("ADMIN")
+                .antMatchers(HttpMethod.POST,"/Storage").hasAnyAuthority("ADMIN")
+                .antMatchers(HttpMethod.POST,"/RAM").hasAnyAuthority("ADMIN")
+                .antMatchers(HttpMethod.GET,"/Order").hasAnyAuthority("ADMIN")
+                .antMatchers(HttpMethod.GET,"/Order/ByUser").hasAnyAuthority("ADMIN","USER")
+                .antMatchers(HttpMethod.GET,"/Inventory").hasAnyAuthority("ADMIN")
+                .antMatchers(HttpMethod.POST,"/IncreaseAmount/{prodId}/{amount}").hasAnyAuthority("ADMIN")
+                .antMatchers("/ws").hasAnyAuthority("ADMIN","USER")
+                .antMatchers("/app/topics").hasAnyAuthority("ADMIN","USER")
+                .antMatchers("/topic/chat").hasAnyAuthority("ADMIN","USER")
+
+
                 .anyRequest().permitAll()
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))

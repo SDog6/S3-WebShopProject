@@ -30,9 +30,14 @@ test = logic.getAllCPU();
 
 @PostMapping()
     public ResponseEntity createCPU(@RequestBody CPU cpu){
-     logic.AddBasicProduct(cpu);
-     inv.save(new PInventory(cpu,10));
-    return new ResponseEntity(HttpStatus.OK);
+    try{
+        logic.AddBasicProduct(cpu);
+        inv.save(new PInventory(cpu,10));
+        return new ResponseEntity(HttpStatus.OK);
+    }
+    catch (Exception e){
+        return new ResponseEntity(HttpStatus.CONFLICT);
+    }
 }
 
 }

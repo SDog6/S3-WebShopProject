@@ -13,7 +13,6 @@ import Home from '../Pages/Home';
         }
         else {
             return Home;
-    
         }
     }
     return Home;

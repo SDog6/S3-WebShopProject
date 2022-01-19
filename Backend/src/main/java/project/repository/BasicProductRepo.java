@@ -2,7 +2,7 @@ package project.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import project.DBAccessInterfaces.productAccess.IBasicProduct;
+import project.DBAccessInterfaces.IBasicProduct;
 import project.Models.product_class.parent_class.BasicProduct;
 import project.repositoryInterfaces.IBasicProductRepo;
 

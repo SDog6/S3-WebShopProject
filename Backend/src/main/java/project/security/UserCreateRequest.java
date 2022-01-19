@@ -5,6 +5,12 @@ public class UserCreateRequest {
     private String password;
     private String role;
 
+    public UserCreateRequest(String username, String password, String role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
+
     public String getUsername() {
         return username;
     }

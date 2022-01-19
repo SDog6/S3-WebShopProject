@@ -21,6 +21,8 @@ function CreateGPUPage(props) {
   const [HDMIProtsValue, setHDMIPortsValue] = useState(1);
   const [DisplayPortsValue, setDisplayPortsValue] = useState(1);
   const [FansValue, setFansValue] = useState(1);
+  const [Message, SetMessage] = useState("");
+
 
 
   const onTitleChange = (event) => {
@@ -76,6 +78,11 @@ function CreateGPUPage(props) {
   const onSubmit = (event) => {
     event.preventDefault();
 
+    if (!TitleValue || !BrandValue || !PriceValue || !WarrantyValue || !URLValue || !ClockSpeedValue|| !Vram ||!lenghtValue ||!WidthsValue ||!HeightValue|| !HDMIProtsValue || !DisplayPortsValue || !FansValue) {
+      SetMessage("Fill all the fields first!");
+    }
+    else {
+
     let gpu = {
       name: TitleValue,
       brand: BrandValue,
@@ -93,10 +100,16 @@ function CreateGPUPage(props) {
 
     };
 
-    Axios.post('http://localhost:8080/GPU', gpu).then((response) => {
+    Axios.post('http://localhost:8080/GPU', gpu, 
+    {headers: {"Authorization" : `${localStorage.getItem("token")}`}}).then((response) => {
         console.log(response.data)
-        alert("Product Successfully Uploaded");
-      });
+        SetMessage("Product created!");
+      },
+      (error) => {
+          console.log(error);
+          SetMessage("Please check your fields !");
+        });
+      }
   };
 
   return (
@@ -160,6 +173,8 @@ function CreateGPUPage(props) {
         <br />
         <br />
         <Button onClick={onSubmit}>Save GPU</Button>
+        { <p className="m"> { Message } </p> }
+
       </Form>
     </div>
   );

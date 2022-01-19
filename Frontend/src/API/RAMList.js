@@ -20,7 +20,8 @@ class RAMList extends Component{
     
     
     componentDidMount() { 
-        axios.get('http://localhost:8080/RAM')
+        axios.get('http://localhost:8080/RAM', 
+        {headers: {"Authorization" : `${localStorage.getItem("token")}`}})
         .then(response =>{
             this.setState({
                 products: response.data

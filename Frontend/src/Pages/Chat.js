@@ -24,14 +24,16 @@ function Chat() {
   }, []);
 
   function sendMessage() {
-    const token = localStorage.getItem("token")
-    var username = ''
-    if(token != null){
-      const decoded = jwtDecode(token)
-      username = decoded.sub
+    if(msgToSend != ""){
+      const token = localStorage.getItem("token")
+      var username = ''
+      if(token != null){
+        const decoded = jwtDecode(token)
+        username = decoded.sub
+      }
+  
+  stompClient.send("/app/topics", {}, JSON.stringify({'name': msgToSend, 'username' : username}));
     }
-
-stompClient.send("/app/topics", {}, JSON.stringify({'name': msgToSend, 'username' : username}));
   };
 
   function onMessageReceived(data)

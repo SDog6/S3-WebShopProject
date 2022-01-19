@@ -30,7 +30,8 @@ export class MotherboardSearch extends Component {
 
   componentDidMount(){
     axios
-    .get(`http://localhost:8080/BasicProduct/Name/${this.state.PropsName}`)
+    .get(`http://localhost:8080/BasicProduct/Name/${this.state.PropsName}`, 
+    {headers: {"Authorization" : `${localStorage.getItem("token")}`}})
     .then((response) => {
       console.log(response.data)
       this.setState({Product : response.data})

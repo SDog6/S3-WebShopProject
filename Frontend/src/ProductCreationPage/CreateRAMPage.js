@@ -14,6 +14,7 @@ function CreateRAMPage(props) {
   const [URLValue, setURLValue] = useState("");
   const [Amount, setAmont] = useState("");
   const [Voltage, setVoltage] = useState("");
+  const [Message, SetMessage] = useState("");
 
 
 
@@ -42,7 +43,10 @@ function CreateRAMPage(props) {
 
   const onSubmit = (event) => {
     event.preventDefault();
-
+    if (!TitleValue || !BrandValue || !PriceValue || !WarrantyValue || !URLValue || !Voltage || !Amount ) {
+      SetMessage("Fill all the fields first!");
+    }
+    else {
     let ram = {
       name: TitleValue,
       brand: BrandValue,
@@ -54,10 +58,16 @@ function CreateRAMPage(props) {
 
     };
 
-    Axios.post('http://localhost:8080/RAM', ram).then((response) => {
+    Axios.post('http://localhost:8080/RAM', ram, 
+    {headers: {"Authorization" : `${localStorage.getItem("token")}`}}).then((response) => {
         console.log(response.data)
-        alert("Product Successfully Uploaded");
-      });
+        SetMessage("Product created!");
+      },
+      (error) => {
+          console.log(error);
+          SetMessage("Please check your fields!");
+        });
+      }
   };
 
   return (
@@ -97,6 +107,8 @@ function CreateRAMPage(props) {
         <br />
         <br />
         <Button onClick={onSubmit}>Save RAM</Button>
+        { <p className="m"> { Message } </p> }
+
       </Form>
     </div>
   );

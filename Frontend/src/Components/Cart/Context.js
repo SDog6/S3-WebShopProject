@@ -73,6 +73,12 @@ export class DataProvider extends Component {
         },0)
         this.setState({total: res})
     };
+
+    emptryCart = ()=>{
+        this.setState({ cart: [],
+            total: 0})
+    };
+    
     
     componentDidUpdate(){
         localStorage.setItem('dataCart', JSON.stringify(this.state.cart))
@@ -89,7 +95,8 @@ export class DataProvider extends Component {
             this.setState({total: dataTotal});
         }
 
-        axios.get('http://localhost:8080/BasicProduct')
+        axios.get('http://localhost:8080/BasicProduct', 
+        {headers: {"Authorization" : `${localStorage.getItem("token")}`}})
         .then(response =>{
             this.setState({
                 products: response.data
@@ -101,10 +108,10 @@ export class DataProvider extends Component {
 
     render() {
         const {products, cart,total} = this.state;
-        const {addCart,reduction,increase,removeProduct,getTotal} = this;
+        const {addCart,reduction,increase,removeProduct,getTotal,emptryCart} = this;
         return (
             <DataContext.Provider 
-            value={{products, addCart, cart, reduction,increase,removeProduct,total,getTotal}}>
+            value={{products, addCart, cart, reduction,increase,removeProduct,total,getTotal,emptryCart}}>
                 {this.props.children}
             </DataContext.Provider>
         )

@@ -31,6 +31,7 @@ import About from "./Pages/About";
 import CheckUser from "./Components/CheckUser";
 import CheckAdmin from "./Components/CheckAdmin";
 import CheckLogin from "./Components/CheckLogin";
+import Register from "./Pages/Register";
 
 function App() {
   return (
@@ -42,6 +43,8 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/products" exact component={Products} />
           <Route path="/login" exact component={CheckLogin(Login)} />
+          <Route path="/register" exact component={CheckLogin(Register)} />
+
           <Route path="/logout" exact component={Logout} />
           
           <Route path="/CPU/:name" exact component={CPUSearch} />

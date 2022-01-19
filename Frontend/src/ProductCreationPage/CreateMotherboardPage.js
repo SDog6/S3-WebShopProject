@@ -14,6 +14,8 @@ function CreateMotherboardPage(props) {
   const [URLValue, setURLValue] = useState("");
   const [Chipset, setChipset] = useState("");
   const [Wifi, setWifi] = useState(false);
+  const [Message, SetMessage] = useState("");
+
 
   const onTitleChange = (event) => {
     setTitleValue(event.currentTarget.value);
@@ -38,6 +40,11 @@ function CreateMotherboardPage(props) {
   const onSubmit = (event) => {
     event.preventDefault();
 
+    if (!TitleValue || !BrandValue || !PriceValue || !WarrantyValue || !URLValue || !Chipset || !thewifi ) {
+      SetMessage("Fill all the fields first!");
+    }
+    else {
+
     var thewifi;
 
     if(Wifi === "yes"){
@@ -57,10 +64,16 @@ function CreateMotherboardPage(props) {
       wifi : thewifi
     };
 
-    Axios.post('http://localhost:8080/Motherboard', mo).then((response) => {
+    Axios.post('http://localhost:8080/Motherboard', mo, 
+    {headers: {"Authorization" : `${localStorage.getItem("token")}`}}).then((response) => {
         console.log(response.data)
-        alert("Product Successfully Uploaded");
-      });
+        SetMessage("Product created!");
+      },
+      (error) => {
+          console.log(error);
+          SetMessage("Please check your fields fields!");
+        });
+      }
   };
 
   return (
@@ -107,6 +120,8 @@ function CreateMotherboardPage(props) {
         <br />
         <br />
         <Button onClick={onSubmit}>Save Motherboard</Button>
+        { <p className="m"> { Message } </p> }
+
       </Form>
     </div>
   );

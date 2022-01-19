@@ -30,9 +30,14 @@ public class GPUController {
 
     @PostMapping()
     public ResponseEntity createGPU(@RequestBody GPU gpu){
-        logic.AddBasicProduct(gpu);
-        inv.save(new PInventory(gpu,10));
-        return new ResponseEntity(HttpStatus.OK);
+        try{
+            logic.AddBasicProduct(gpu);
+            inv.save(new PInventory(gpu,10));
+            return new ResponseEntity(HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity(HttpStatus.CONFLICT);
+        }
     }
 
 

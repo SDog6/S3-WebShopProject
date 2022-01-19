@@ -1,6 +1,7 @@
 package project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import project.service.UserService;
@@ -16,18 +17,12 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity createUser(@RequestBody UserCreateRequest userCreateRequest) {
-        userService.createUser(userCreateRequest);
-        return ResponseEntity.ok().build();
+        if(userService.createUser(userCreateRequest)){
+            return ResponseEntity.ok(HttpStatus.OK);
+        }
+        else {
+            return ResponseEntity.ok(HttpStatus.CONFLICT);
+        }
     }
 
-
-    @GetMapping("/account")
-    public ResponseEntity<String> getAccountDetails() {
-        return ResponseEntity.ok("nice");
-    }
-
-    @GetMapping("/inventory")
-    public ResponseEntity<String> getInventory() {
-        return ResponseEntity.ok("nice");
-    }
 }

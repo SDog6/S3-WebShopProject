@@ -13,7 +13,8 @@ class GPUList extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:8080/GPU").then((response) => {
+    axios.get("http://localhost:8080/GPU", 
+    {headers: {"Authorization" : `${localStorage.getItem("token")}`}}).then((response) => {
       this.setState({
         products: response.data,
       });

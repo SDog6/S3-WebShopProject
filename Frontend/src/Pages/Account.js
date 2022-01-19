@@ -31,14 +31,16 @@ class Account extends Component {
     }
 
     if (role === "USER") {
-      axios.get(`http://localhost:8080/Order/${sub}`).then((response) => {
+      axios.get(`http://localhost:8080/Order/${sub}`, 
+      {headers: {"Authorization" : `${localStorage.getItem("token")}`}}).then((response) => {
         this.setState({
           items: response.data,
         });
         console.log(this.state.items);
       });
     } else {
-        axios.get(`http://localhost:8080/Order`).then((response) => {
+        axios.get(`http://localhost:8080/Order`, 
+        {headers: {"Authorization" : `${localStorage.getItem("token")}`}}).then((response) => {
             this.setState({
               items: response.data,
             });
@@ -74,11 +76,15 @@ class Account extends Component {
                       {order.username}'s Order
                     </CardTitle>
                     <CardSubtitle>
+                      Will be delivered to :{order.address}
+                    </CardSubtitle>
+                    
+                    <CardSubtitle>
                       Total Price Of Order :{order.price}
                     </CardSubtitle>
                     --------------------------- Items Ordered:
-                    {order.products.map((product) => (
-                      <CardSubtitle>{product.name}</CardSubtitle>
+                    {order.productsnr.map((products) => (
+                      <CardSubtitle>{products.product.name} X {products.amount}</CardSubtitle>
                     ))}
                   </CardBody>
                 </Card>

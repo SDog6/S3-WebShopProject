@@ -13,6 +13,7 @@ function CreateCPUCoolerPage(props) {
   const [WarrantyValue, setWarrantValue] = useState(0);
   const [URLValue, setURLValue] = useState("");
   const [Voltage, SetVoltage] = useState("");
+  const [Message, SetMessage] = useState("");
 
 
 
@@ -40,29 +41,37 @@ function CreateCPUCoolerPage(props) {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    if (!TitleValue || !BrandValue || !PriceValue || !WarrantyValue || !URLValue ) {
-      return alert("fill all the fields first!");
+    if (!TitleValue || !BrandValue || !PriceValue || !WarrantyValue || !URLValue || !Voltage ) {
+      SetMessage("Fill all the fields first!");
+    }
+    else {
+
+      let cpucool = {
+        name: TitleValue,
+        brand: BrandValue,
+        price: PriceValue,
+        warranty: WarrantyValue,
+        url: URLValue,
+        voltage : Voltage
+      };
+  
+      Axios.post('http://localhost:8080/CPUCooler', cpucool, 
+      {headers: {"Authorization" : `${localStorage.getItem("token")}`}}).then((response) => {
+          console.log(response.data)
+          SetMessage("Product Successfully Uploaded");
+        },
+        (error) => {
+            console.log(error);
+            SetMessage("Please check your fields!")
+          });
     }
 
-    let cpucool = {
-      name: TitleValue,
-      brand: BrandValue,
-      price: PriceValue,
-      warranty: WarrantyValue,
-      url: URLValue,
-      voltage : Voltage
-    };
-
-    Axios.post('http://localhost:8080/CPUCooler', cpucool).then((response) => {
-        console.log(response.data)
-          alert("Product Successfully Uploaded");
-      });
   };
 
   return (
     <div style={{ maxWidth: "700px", margin: "2rem auto" }}>
       <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-        <Title level={2}>Please specify the details of the CPU you want to create</Title>
+        <Title level={2}>Please specify the details of the CPU Cooling you want to create</Title>
       </div>
       <Form onSubmit={onSubmit}>
         <br />
@@ -94,6 +103,7 @@ function CreateCPUCoolerPage(props) {
 
 
         <Button onClick={onSubmit}>Save CPU Cooler</Button>
+        { <p className="m"> { Message } </p> }
       </Form>
     </div>
   );

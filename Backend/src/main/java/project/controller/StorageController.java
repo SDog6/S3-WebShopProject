@@ -30,9 +30,14 @@ public class StorageController {
 
     @PostMapping()
     public ResponseEntity createStorage(@RequestBody Storage s){
-        logic.AddBasicProduct(s);
-        inv.save(new PInventory(s,10));
-        return new ResponseEntity(HttpStatus.OK);
+        try{
+            logic.AddBasicProduct(s);
+            inv.save(new PInventory(s,10));
+            return new ResponseEntity(HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity(HttpStatus.CONFLICT);
+        }
     }
 
 

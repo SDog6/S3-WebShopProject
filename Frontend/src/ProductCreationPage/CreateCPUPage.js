@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Typography, Button, Form, message, Input, Icon } from "antd";
 import Axios from "axios";
-
+import "../styles/Creation.css"
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -18,6 +18,8 @@ function CreateCPUPage(props) {
   const [SocketValue, setSocketValue] = useState("");
   const [CoresValue, setCoresValue] = useState(0);
   const [ThreadsValue, setThreadsValue] = useState(0);
+  const [Message, SetMessage] = useState("");
+
 
   const onTitleChange = (event) => {
     setTitleValue(event.currentTarget.value);
@@ -62,27 +64,34 @@ function CreateCPUPage(props) {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    if (!TitleValue || !BrandValue || !PriceValue || !WarrantyValue || !URLValue) {
-      return alert("fill all the fields first!");
+    if (!TitleValue || !BrandValue || !PriceValue || !WarrantyValue || !URLValue || !ClockSpeedValue || !PowerConsumValue ||!SocketValue||!CoresValue||!ThreadsValue) {
+      SetMessage("Fill all the fields first!");
     }
-
-    let cpu = {
-      name: TitleValue,
-      brand: BrandValue,
-      price: PriceValue,
-      warranty: WarrantyValue,
-      url: URLValue,
-      clockspeed: ClockSpeedValue,
-      powerconsum : PowerConsumValue,
-      socket: SocketValue,
-      cores: CoresValue,
-      threads : ThreadsValue,
-    };
-
-    Axios.post('http://localhost:8080/CPU', cpu).then((response) => {
-        console.log(response.data)
-          alert("Product Successfully Uploaded");
-      });
+    else {
+      let cpu = {
+        name: TitleValue,
+        brand: BrandValue,
+        price: PriceValue,
+        warranty: WarrantyValue,
+        url: URLValue,
+        clockspeed: ClockSpeedValue,
+        powerconsum : PowerConsumValue,
+        socket: SocketValue,
+        cores: CoresValue,
+        threads : ThreadsValue,
+      };
+  
+      Axios.post('http://localhost:8080/CPU', cpu, 
+      {headers: {"Authorization" : `${localStorage.getItem("token")}`}}).then((response) => {
+          console.log(response.data)
+          SetMessage("Product crated!");
+        },
+        (error) => {
+            console.log(error);
+            SetMessage("Please check your fields first!");
+          });
+    }
+    
   };
 
   return (
@@ -136,6 +145,8 @@ function CreateCPUPage(props) {
 
 
         <Button onClick={onSubmit}>Save CPU</Button>
+        { <p className="m"> { Message } </p> }
+
       </Form>
     </div>
   );

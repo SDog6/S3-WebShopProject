@@ -2,7 +2,9 @@ package project.Models.product_class;
 
 import project.Models.product_class.parent_class.BasicProduct;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "cpu")
@@ -19,7 +21,7 @@ public class CPU extends BasicProduct {
     @Column(name = "threads")
     private int threads;
 
-    public CPU(String name,String brand,double price,int warranty,String url,int count,double clockspeed,int powerconsum,String socket,int cores,int threads)
+    public CPU(String name, String brand, double price, int warranty, String url, int count, double clockspeed, int powerconsum, String socket, int cores, int threads)
     {
         super(name,brand,price,warranty,url,count);
         this.clockspeed = clockspeed;

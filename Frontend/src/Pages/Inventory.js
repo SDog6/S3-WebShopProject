@@ -10,20 +10,24 @@ class Inventory extends Component {
     super(props);
     this.state = {
       inventory: [],
+      token : ""
     };
   }
 
   componentDidMount() {
-      axios.get(`http://localhost:8080/Inventory`).then((response) => {
+      axios.get(`http://localhost:8080/Inventory`, 
+      {headers: {"Authorization" : `${localStorage.getItem("token")}`}}).then((response) => {
         this.setState({
           inventory: response.data,
+          token : localStorage.getItem("token")
         });
         console.log(this.state.inventory);
       });
   }
   
   update(){
-    axios.get(`http://localhost:8080/Inventory`).then((response) => {
+    axios.get(`http://localhost:8080/Inventory`, 
+    {headers: {"Authorization" : `${localStorage.getItem("token")}`}}).then((response) => {
       this.setState({
         inventory: response.data,
       });
@@ -33,9 +37,8 @@ class Inventory extends Component {
 
   increaseInv(e,id) {
     e.preventDefault();
-    console.log(id)
-    axios.post(`http://localhost:8080/Inventory/IncreaseAmount/${id}/5`)
-    .then((response) => { 
+    axios.post(`http://localhost:8080/Inventory/IncreaseAmount/${id}/5`, 
+    {headers: {"Authorization" : `${this.state.token}`}}).then((response) => { 
         console.log(response);
         this.update();
       });
