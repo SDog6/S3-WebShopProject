@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="OrderTests.OrderCreationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-19T11:25:13" hostname="DESKTOP-R5BS0TJ" time="0.048">
+<testsuite name="OrderTests.OrderCreationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-19T16:25:23" hostname="DESKTOP-R5BS0TJ" time="0.064">
   <properties/>
-  <testcase name="AddTest()" classname="OrderTests.OrderCreationTest" time="0.048"/>
+  <testcase name="AddTest()" classname="OrderTests.OrderCreationTest" time="0.064"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

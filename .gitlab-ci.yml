@@ -42,7 +42,8 @@ docker-build:
   stage: docker-build
   services:
     - docker:dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
-    - cd Backend
     - docker build --pull "$CI_REGISTRY_IMAGE${master}" .
     - docker push "$CI_REGISTRY_IMAGE${tag}"
