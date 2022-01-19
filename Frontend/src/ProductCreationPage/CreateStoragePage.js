@@ -108,7 +108,7 @@ function CreateStoragePage(props) {
         <br />
         
         <Button onClick={onSubmit}>Save Storage</Button>
-        { <p className="m"> { Message } </p> }
+        { <h4 className="m"> { Message } </h4> }
       </Form>
     </div>
   );

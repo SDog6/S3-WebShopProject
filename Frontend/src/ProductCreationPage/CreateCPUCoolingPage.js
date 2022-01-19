@@ -103,7 +103,7 @@ function CreateCPUCoolerPage(props) {
 
 
         <Button onClick={onSubmit}>Save CPU Cooler</Button>
-        { <p className="m"> { Message } </p> }
+        { <h4 className="m"> { Message } </h4> }
       </Form>
     </div>
   );

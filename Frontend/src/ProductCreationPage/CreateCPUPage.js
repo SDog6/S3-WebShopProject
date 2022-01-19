@@ -145,7 +145,7 @@ function CreateCPUPage(props) {
 
 
         <Button onClick={onSubmit}>Save CPU</Button>
-        { <p className="m"> { Message } </p> }
+        { <h4 className="m"> { Message } </h4> }
 
       </Form>
     </div>

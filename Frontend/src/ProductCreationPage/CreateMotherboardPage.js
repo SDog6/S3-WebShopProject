@@ -40,7 +40,7 @@ function CreateMotherboardPage(props) {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    if (!TitleValue || !BrandValue || !PriceValue || !WarrantyValue || !URLValue || !Chipset || !thewifi ) {
+    if (!TitleValue || !BrandValue || !PriceValue || !WarrantyValue || !URLValue || !Chipset  ) {
       SetMessage("Fill all the fields first!");
     }
     else {
@@ -105,7 +105,7 @@ function CreateMotherboardPage(props) {
         <br />
         <br />
         <label>Chipset</label>
-        <Input onChange={(event) => setChipset(event.target.value)} value={Chipset} type="number" />
+        <Input onChange={(event) => setChipset(event.target.value)} value={Chipset} />
         <br />
         <br />
         <label>Wifi</label>
@@ -120,7 +120,7 @@ function CreateMotherboardPage(props) {
         <br />
         <br />
         <Button onClick={onSubmit}>Save Motherboard</Button>
-        { <p className="m"> { Message } </p> }
+        { <h4 className="m"> { Message } </h4> }
 
       </Form>
     </div>

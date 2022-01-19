@@ -107,7 +107,7 @@ function CreateRAMPage(props) {
         <br />
         <br />
         <Button onClick={onSubmit}>Save RAM</Button>
-        { <p className="m"> { Message } </p> }
+        { <h4 className="m"> { Message } </h4> }
 
       </Form>
     </div>
