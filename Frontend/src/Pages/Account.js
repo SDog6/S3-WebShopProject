@@ -31,7 +31,7 @@ class Account extends Component {
     }
 
     if (role === "USER") {
-      axios.get(`http://localhost:8080/Order/ByUser/${sub}`, 
+      axios.get(`http://localhost:8080/Order/ByUser/${sub}`,
       {headers: {"Authorization" : `${localStorage.getItem("token")}`}}).then((response) => {
         this.setState({
           items: response.data,

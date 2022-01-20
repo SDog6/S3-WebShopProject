@@ -25,8 +25,8 @@ public class OrderController {
         return ResponseEntity.ok().body(test);
     }
 
-    @GetMapping("/ByUser")
-    public ResponseEntity<List<Order>> GetOrdersByUsername(@RequestBody String username){
+    @GetMapping("/ByUser/{username}")
+    public ResponseEntity<List<Order>> GetOrdersByUsername(@PathVariable(value = "username") String username){
         List <Order> test = null;
         test = logic.getOrdersByUsername(username);
         return ResponseEntity.ok().body(test);

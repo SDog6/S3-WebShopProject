@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ProductTests.ProductsTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-01-19T16:25:23" hostname="DESKTOP-R5BS0TJ" time="0.011">
+<testsuite name="ProductTests.ProductsTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-01-20T09:29:32" hostname="DESKTOP-R5BS0TJ" time="0.445">
   <properties/>
-  <testcase name="AddTest()" classname="ProductTests.ProductsTest" time="0.008"/>
-  <testcase name="GettingTest()" classname="ProductTests.ProductsTest" time="0.002"/>
+  <testcase name="AddTest()" classname="ProductTests.ProductsTest" time="0.432"/>
+  <testcase name="GettingTest()" classname="ProductTests.ProductsTest" time="0.008"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
